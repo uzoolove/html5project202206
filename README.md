@@ -49,3 +49,7 @@
 * https://socket.io
 ## mongo DB
 * https://www.mongodb.com
+## W3C
+* https://www.w3.org
+## WHATWG
+* https://whatwg.org
