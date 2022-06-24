@@ -32,10 +32,11 @@
 * [Download Pages](https://github.com/uzoolove/html5project202206/blob/master/PPT) 이동 후 각 PPT 파일 선택해서 Download 버튼 클릭
 
 ## 소스코드 공유(본인의 소스코드를 강사에게 공유하고 싶을때)
-1. [Code Share](https://codeshare.io/) 접속(마우스 오른쪽 버튼 > 새 탭에서 링크 열기)
+* https://codeshare.io/4eMxLb 접속 후 문제 있는 소스코드 붙여넣기
+<!-- 1. [Code Share](https://codeshare.io/) 접속(마우스 오른쪽 버튼 > 새 탭에서 링크 열기)
 2. Share Code Now 클릭
 3. 본인의 코드 복사
-4. 브라우저의 주소창의 URL 복사 후 채팅창에 붙여넣기
+4. 브라우저의 주소창의 URL 복사 후 채팅창에 붙여넣기 -->
 
 # 참조 사이트
 ## Nodejs
