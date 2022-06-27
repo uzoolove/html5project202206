@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="74.246px" height="127.279px" viewBox="0 0 74.246 127.279" enable-background="new 0 0 74.246 127.279"
+	 xml:space="preserve">
+<style type="text/css">
+	<![CDATA[
+	#pre_arrow{				/*화살표 부분*/
+		fill:#E3DFD9;		/*체움색상*/
+	}		
+  ]]>
+</style>  
+	 
+<polygon id="pre_arrow" points="74.246,10.606 63.64,0 0,63.64 63.64,127.279 74.246,116.673 21.213,63.64 "/>
+</svg>

@@ -1,0 +1,385 @@
+/*리셋===================================================================*/
+* {
+	margin: 0;
+	padding: 0;
+}
+time {
+	display: inline;
+}
+/*기본 font 설정*/
+body {
+	font-size: 0.75em;
+	font-family: 돋움, dotum, 굴림, gulim, sans-serif;
+	color: #000;
+	background: #e3dfd9 url(bg/bg_header.png) repeat-x;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: underline;
+}
+@font-face {
+	font-family: 'NanumGothicWeb';
+	src: url('font/NanumGothic.eot');
+	src: local('NanumGothic'),  url('font/NanumGothic.ttf') format('truetype'),  url('font/NanumGothic.woff') format('woff');
+}
+@font-face {
+	font-family: 'NanumGothicBoldWeb';
+	src: url('font/NanumGothicBold.eot');
+	src: local('NanumGothicBold'),  url('font/NanumGothicBold.ttf') format('truetype'),  url('font/NanumGothicBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'NanumGothicExtraBoldWeb';
+	src: url('font/NanumGothicExtraBold.eot');
+	src: local('NanumGothicExtraBold'),  url('font/NanumGothicExtraBold.ttf') format('truetype'),  url('font/NanumGothicExtraBold.woff') format('woff');
+}
+@font-face {
+	font-family: 'akzidenz';
+	src: url('font/akzidenz.eot');
+	src: local('akzidenz'),  url('font/akzidenz.ttf') format('truetype'),  url('font/akzidenz.woff') format('woff');
+}
+/*이미지 설정*/
+img {
+	border: 0;
+	vertical-align: top;
+}
+/*리스트 설정*/
+ul, ol {
+	list-style: none;
+}
+/*테이블 설정*/
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+/*기본 form 설정*/
+select, input, textarea {
+	font-family: 돋움, dotum, 굴림, gulim, sans-serif;
+	font-size: 12px;
+}
+input[type="radio"] {
+	position: relative;
+	top: 2px;
+}
+input[type="checkbox"] {
+	position: relative;
+	top: 2px;
+}
+input[type="submit"] {
+	cursor: pointer;
+	border: 0;
+}
+button {
+	cursor: pointer;
+	border: 0;
+}
+pre{
+	font-family: 돋움, dotum, 굴림, gulim, sans-serif;
+	font-size: 12px;
+	overflow-y: auto;
+	overflow-x: auto;
+}
+
+/*===================================================================리셋*/
+/*숨김 콘텐츠===================================================================*/
+/*스킵네비게이션 링크*/
+#skipNavi {
+	display: block;
+	width: 1px;
+	height: 1px;
+	margin: 0 -1px -1px 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+}
+#skipNavi:hover, #skipNavi:active, #skipNavi:focus {
+	position: absolute;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	font-size: 100%;
+	line-height: normal;
+	padding: 5px 0;
+	background: #000;
+	color: #fff;
+	text-align: center;
+}
+/* 숨김 제목 */
+.blind, .slide .coupon_content>h1 {
+	position: absolute;
+	left: -9999em;
+}
+/*===================================================================숨김 콘텐츠*/
+/*페이지=========================================================================*/
+/*===========================================================================페이지*/
+
+/*헤더===================================================================*/
+@keyframes logoAnimation {
+	from {
+		transform:translate(0, 50px);
+		opacity:0;
+	}
+	to {
+		transform: translate(0, 0);
+		opacity: 100;
+	}
+}
+@keyframes logoSloganAnimation {
+	from {
+		transform:translate(-100px, 0) scale(0.1) rotate(-60deg);
+		opacity:0;
+	}
+	to {
+		transform: translate(0, 0) scale(1) rotate(0deg);
+		opacity: 80;
+	}
+}
+#header>hgroup {/*페이지 로고 영역*/
+	position: relative;
+	height: 60px;
+}
+.logo {/*페이지 로고*/
+	position: absolute;
+	bottom: 13px;
+	left: 50px;
+	overflow: hidden;
+}
+.logo img {
+	width: 144px;
+	height: 33px;
+	animation-name: logoAnimation;
+	animation-duration: 1s;
+}
+.theme {/*페이지 로고 슬로건*/
+	position: absolute;
+	top: 18px;
+	left: 200px;
+	overflow: hidden;
+}
+.theme img {
+	width: 78px;
+	height: 27px;
+	animation-name: logoSloganAnimation;
+	animation-duration: 1s;
+}
+#nav ul {/*메인메뉴 위치*/
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#nav li {/*메뉴 아이템*/
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+#nav a {
+	display: inline-block;
+	width: 130px;
+	font-family: NanumGothicExtraBoldWeb;
+	font-size: 120%;
+	color: #fff;
+	line-height: 60px;
+}
+#nav a:hover, #nav a:focus {
+	width: 170px;
+	background: #953608;
+	text-decoration: none;
+	padding-top: 15px;
+	line-height: 45px;
+	transition: all 0.3s;
+}
+#nav a:hover:after, #nav a:focus:after {/*메뉴 마우스 오버시 추가되는 콘텐츠 공통 영역*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 170px;
+	text-align: center;
+	color: #f6a60b;
+	font-family: akzidenz;
+	font-variant: small-caps;
+	font-size: 110%;
+	line-height: 40px;
+	text-shadow: #702100 1px 1px 2px;
+}
+.today a:hover:after, .today a:focus:after {/*[오늘] 메뉴 추가 콘텐츠*/
+	content: "Today";
+}
+.near a:hover:after, .near a:focus:after {/*[근처] 메뉴 추가 콘텐츠*/
+	content: "Location";
+}
+.best a:hover:after, .best a:focus:after {/*[추천] 메뉴 추가 콘텐츠*/
+	content: "Best";
+}
+.all a:hover:after, .all a:focus:after {/*[추천] 메뉴 추가 콘텐츠*/
+	content: "All";
+}
+#simple_login {/*로그인폼*/
+	position: absolute;
+	top: 74px;
+	left: 20px;
+}
+#simple_login label {
+	letter-spacing: -1px;
+}
+#log_id {
+	margin-right: 8px;
+}
+#simple_login input[type=submit]{
+	background: #f68001;
+	background: linear-gradient(#f9a837, #f68001, #f9a837);
+	border: #da8402 solid 1px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #dcdddd;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 10px;
+	margin-left: 10px;
+	font-size: 11px;
+	letter-spacing: -1px;
+	vertical-align: middle;
+}
+.member_join, .go_mypage, .logout { /*회원가입 및 마이 페이지로 링크*/
+	background: linear-gradient(#bbb, #999, #bbb);
+	border: #8d8d8d solid 1px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #dcdddd;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 10px;
+	font-size: 11px;
+	letter-spacing: -1px;
+	vertical-align: middle;
+}
+.member_join{/* 회원가입 및 마이 페이지로 링크 */
+	position: absolute;
+	top: 74px;
+	left: 458px;
+}
+#member_info{
+	padding: 10px 0 0 20px;
+}
+#member_info > img{	/* 로그인 시 회원 프로필 사진 */
+	width: 50px;
+	height: 30px;
+	left: 20px;
+	border: #ccc solid 1px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
+
+
+
+
+#cart {/*관심쿠폰 영역*/
+	position: absolute;
+	top: 60px;
+	right: 0;
+}
+#cart > ul > li img{
+	width: 48px;
+	height: 28px;
+}
+.interest {/*관심쿠폰 제목*/
+	float: left;
+	background: url(svg/cart.svg) 35px center no-repeat,  url(svg/cart_bg.svg) no-repeat;
+	width: 80px;
+	padding-top: 50px;
+	height: 0;
+	overflow: hidden;
+}
+.interest_cnt {/*관심쿠폰 갯수*/
+	position: absolute;
+	left: 50px;
+	top: 7px;
+	background: #e14a1a;
+	border: #cc3300 solid 1px;
+	color: #fff;
+	font-weight: bold;
+	padding: 0px 7px;
+	border-radius: 10px;
+}
+#cart ul {/*등록된 관심 상품 목록*/
+	float: left;
+	height: 50px;
+	padding: 0 5px;
+	overflow: hidden;
+	background: #b1a18d;
+	transition: all 0.3s;
+}
+#cart.cartoff ul {/*등록된 관심 상품 목록 닫기*/
+	width: 0;
+	height: 50px;
+	padding: 0 0 0 5px;
+}
+#cart.cartoff li {
+	display: none;
+}
+#cart li {/*등록된 쿠폰 아이템 영역*/
+	position: relative;
+	float: left;
+	padding: 10px 5px;
+}
+#cart img {/*등록된 쿠폰 아이템 영역*/
+	border: #fff solid 1px;
+}
+#cart a:hover img, #cart a:focus img{/*등록된 쿠폰 아이템 영역*/
+	border: #fff solid 3px;
+	width: 44px;
+	height: 24px;
+}
+#cart .cart_close{
+	width:15px;
+	height:0px;
+	position:absolute;
+	top:5px;
+	right:0px;
+	background: #e14a1a url(svg/close.svg) center center no-repeat;
+	background-size: 5px 5px;
+	padding-top:15px;
+	overflow:hidden;
+	border-radius:10px;
+	border: #cc3300 solid 1px;
+}
+#btn_menu_close {
+	display: none;
+}
+/*===================================================================헤더*/
+
+
+/*푸터===================================================================*/
+#footer { /*페이지 헤더*/
+	color: #888682;
+	/*padding: 15px 0 15px 140px;*/
+	/*position: relative;*/
+	border-top: #c1beb9 solid 1px;
+	/*margin-top: 25px;*/
+}
+#footer .logo {
+	position: absolute;
+	top: 5px;
+	left: 0;
+	padding-top: 20px;
+	padding-left: 7px;
+}
+#footer li {
+	display: inline-block;
+	padding-bottom: 5px;
+}
+#footer li:after {
+	content: " | ";
+}
+#footer ul :last-child:after {
+	content: "";
+}
+#footer li a {
+	color: #888682;
+	font-weight: bold;
+}
+#footer address {
+	font-style: normal;
+}
+/*===================================================================풋터*/

@@ -1,0 +1,22 @@
+@import url(common.css);
+@import url(form_section.css);
+
+#page {
+	width: 980px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#header {/*페이지 헤더*/
+	position: relative;
+	height: 110px;
+	margin-bottom: 20px;
+}
+#main {
+	position: relative;
+	padding:0 10px;
+}
+#footer { /*페이지 헤더*/
+	position: relative;
+	margin-top: 45px;
+	padding: 15px 0 15px 160px;
+}

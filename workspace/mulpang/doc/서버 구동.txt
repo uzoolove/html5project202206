@@ -1,0 +1,6 @@
+1. VSCode의 View > Terminal 메뉴 선택
+2. 터미널에서 npm 명령어로 DB 서버 구동(서비스로 등록되지 않고 수동으로 시작할 경우)
+  npm run db
+3. 터미널의 + (New Terminal) 버튼 클릭 후 새로운 터미널에서 npm 명령어로 웹서버 구동
+  npm start
+4. 크롬 브라우저 주소창에 localhost 입력

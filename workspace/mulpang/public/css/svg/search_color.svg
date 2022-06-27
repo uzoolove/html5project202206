@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="14.742px" height="14.742px" viewBox="0 0 14.742 14.742" enable-background="new 0 0 14.742 14.742"
+	 xml:space="preserve">
+	 
+	 <style type="text/css">
+		<![CDATA[
+		#icon_search{			/*검색 아이콘 */
+			fill:#977f60;
+		}
+      ]]>
+	</style>
+
+<g id="icon_search">	 
+	<path d="M5.5,0C2.462,0,0,2.462,0,5.5C0,8.537,2.462,11,5.5,11C8.537,11,11,8.537,11,5.5C11,2.462,8.537,0,5.5,0z
+		 M5.5,9.5c-2.209,0-4-1.791-4-4s1.791-4,4-4s4,1.791,4,4S7.709,9.5,5.5,9.5z"/>
+	<rect x="7.678" y="10.735" transform="matrix(0.7071 0.7071 -0.7071 0.7071 11.4995 -4.7633)" width="7.643" height="1.529"/>
+</g>	
+</svg>

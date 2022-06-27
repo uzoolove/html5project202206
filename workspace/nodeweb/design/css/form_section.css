@@ -1,0 +1,67 @@
+.form_section {/*회원 가입 페이지 섹션*/
+	margin-top: 10px;
+}
+.form_section progress{/*회원 가입 이미지 전송상태바*/
+	display: none;
+}
+.form_section>h1 {/*회원 가입페이지 제목*/
+	font-family: nanumGothicBoldWeb;
+	line-height: 40px;
+	color: #fff;
+	font-size: 16px;
+	background: linear-gradient(to bottom, #83766a, #4d4137);
+	text-align: center;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+.form_section h2{
+  font-family: nanumGothicBoldWeb;
+  font-size: 16px;  
+}
+
+.form_section > form {/*회원 페이지, 로그인 폼*/
+	border: #a59b8c solid 1px;
+	background: #fff;
+	padding: 40px 40px 40px 230px;
+	min-height: 150px;
+	position: relative;
+}
+.form_section > form > img{/*프로필 이미지*/
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	width: 150px;
+	height: 150px;
+}
+.form_section > form > table{/*회원 가입폼 테이블*/
+	border-top: #6d5d4f solid 2px;
+}
+.form_section > form > table th {
+	border-bottom: #ccc solid 1px;
+	background: #f8f8f8;
+	width: 130px;
+	height: 30px;
+}
+.form_section > form > table td {
+	border-bottom: #ccc solid 1px;
+	padding-left: 10px;
+}
+.form_section > form > .btn_div {
+	text-align: center;
+}
+.form_section > form > div.btn_div button {/* 회원 가입버튼 */
+	background: linear-gradient(#f9a837, #f68001, #f9a837);
+	border: #da8402 solid 1px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #dcdddd;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	width: 100px;
+	text-align: center;
+	line-height: 28px;
+	margin: 10px;
+}
+#detail .form_section {
+	display: none
+}

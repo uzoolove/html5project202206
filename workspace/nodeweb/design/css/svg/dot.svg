@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="4px" height="4px" viewBox="0 0 4 4" enable-background="new 0 0 4 4" xml:space="preserve">
+<style type="text/css">
+	<![CDATA[
+	#bullet{				/*블릿*/
+		fill:#A28D71;		/*체움색상*/
+	}
+  ]]>
+</style> 
+
+<rect id="bullet" width="4" height="4"/>
+</svg>

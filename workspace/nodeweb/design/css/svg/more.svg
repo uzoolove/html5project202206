@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="19.494px" height="19.496px" viewBox="0 0 19.494 19.496" enable-background="new 0 0 19.494 19.496"
+	 xml:space="preserve">
+	 <style type="text/css">
+		<![CDATA[
+		#icon_more{			/*더보기 아이콘 */
+			fill:rgba(255,0,0,0.8)
+		}
+      ]]>
+	</style>	 
+	 
+<polygon id="icon_more" points="11.372,0 8.123,0 8.123,8.123 0,8.123 0,11.373 8.123,11.373 8.123,19.496 11.372,19.496 
+	11.372,11.373 19.494,11.373 19.494,8.123 11.372,8.123 "/>
+
+</svg>

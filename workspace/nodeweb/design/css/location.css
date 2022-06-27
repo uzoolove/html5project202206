@@ -1,0 +1,137 @@
+/*근처==============================================================================*/
+
+#location_map {/*메뉴-근처 지도 표시 영역*/
+	border: #a59b8c solid 1px;
+	background: #fff;
+	height: 444px;
+}
+#location_map .detail_img {/*쿠폰 리스트 이미지. google map의 infoWindow에서 적용*/
+	width: 300px;
+}
+#location_map .note, #location_map .coupon_info {/*쿠폰 상세 설명 내용. google map의 infoWindow에서 적용*/
+	width: 300px;
+	margin-bottom: 12px;
+	font-family: nanumGothicBoldWeb;
+}
+#location_map .coupon_info {/*쿠폰정보. google map의 infoWindow에서 적용*/
+	font-size: 12px;
+	font-family: nanumGothicBoldWeb;
+}
+#location_coupon_counter {
+  text-align: center;
+	position: absolute;
+	top: 450px;
+	right: 10px;
+	color: #e3650c;
+	font-weight: bold;
+}
+#location_coupon_control input[type="range"] {
+	width: 900px;
+	margin-top: 15px;
+	margin-left: 30px;
+}
+#btn_pre_location_coupon {/*이전 버튼*/
+	background: #c1b8ae url(svg/btn_preItems.svg) center center no-repeat;
+	background-size: 60%;
+	width: 30px;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	border-radius: 3px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+#btn_next_location_coupon {/*다음 버튼*/
+	background: #c1b8ae url(svg/btn_nextItems.svg) center center no-repeat;
+	background-size: 60%;
+	width: 30px;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	border-radius: 3px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.coupon_list{
+	position:relative;
+	height:160px;
+	overflow:hidden;
+	perspective:800px;
+}
+.coupon_list > article{
+	position:absolute;
+	top:30px;
+	transition: all 0.5s;
+}
+.location_slide_pre_hide{/*숨겨진 다음 쿠표폰들*/
+	left:-180px;
+	opacity:0;
+}
+.location_slide_pre_02{/*두번째 다음 쿠폰*/
+	left:10px;
+	transform:rotateY(45deg);
+	opacity:0.8;
+}
+.location_slide_pre_01{/*첫번째 이전 쿠폰*/
+	left:200px;
+	transform:rotateY(45deg);
+	opacity:0.8;
+}
+.location_slide_act{/*현재 활성 요소*/
+	outline: #81a539 solid 4px;
+	z-index: 100;
+	left:380px;
+	transform: scale(1.4);
+	transform-origin:center center;
+	transition: all 0.5s;
+}
+.location_slide_next_01{/*첫번째 다음 쿠폰*/
+	left:570px;
+	transform:rotateY(-45deg);
+	opacity:0.8;
+	z-index:10;
+}
+.location_slide_next_02{/*두번째 다음 쿠폰*/
+	left:760px;
+	transform:rotateY(-45deg);	
+	opacity:0.8;
+	z-index:5;
+}
+.location_slide_next_hide{/*숨겨진 다음 쿠폰들*/
+	left:950px;
+	opacity:0;
+}
+.coupon_list article {/*메뉴-근처 쿠폰별 영역*/
+	width: 25%;
+	float: left;
+	background: #fff;
+	box-sizing: border-box;
+	border: #466a2f solid 1px;
+	cursor: pointer;
+}
+.coupon_list article:hover, .coupon_list article:focus {
+	outline: #81a539 solid 4px;
+	z-index: 100;
+	transform: scale(1.2);
+	transition: all 0.5s;
+}
+.coupon_list article>h1 {/*메뉴-근처 쿠폰별 제목*/
+	background: linear-gradient(#839e2c, #537e38);
+	color: #fff;
+	font-size: 100%;
+	line-height: 30px;
+	padding-left: 10px;
+	text-align: center;
+}
+.coupon_list article .detail_img {/*메뉴-근처 쿠폰 상세 이미지*/
+	width: 100%;
+	height: 70px;
+}
+.coupon_list article .content p:nth-of-type(1) {/*메뉴-근처 상세내용*/
+	display: none;
+}
+.coupon_list article .content ul.coupon_info {/*쿠폰정보*/
+	display: none;
+}

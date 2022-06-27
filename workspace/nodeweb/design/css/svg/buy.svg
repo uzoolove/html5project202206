@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="19.494px" height="19.495px" viewBox="0 0 19.494 19.495" enable-background="new 0 0 19.494 19.495"
+	 xml:space="preserve">
+	<style type="text/css">
+		<![CDATA[
+		#icon_arrow{				/*화살표 부분*/
+			fill:rgba(255,255,255,1);		/*체움색상*/
+		}
+		
+		#icon_rect{					/*사각형 부분*/
+			fill:rgba(255,255,255,1);		/*체움색상*/
+		}
+		
+      ]]>
+	</style>  	 
+	 
+	 
+<polygon id="icon_arrow" points="9.747,12.997 19.494,6.498 14.621,6.498 14.621,0 4.873,0 4.873,6.498 0,6.498 "/>
+<rect id="icon_rect" x="0" y="16.246" fill="#FFFFFF" width="19.495" height="3.25"/>
+</svg>

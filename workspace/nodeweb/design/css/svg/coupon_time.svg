@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="15px" height="15px" viewBox="0 0 15 15" enable-background="new 0 0 15 15" xml:space="preserve">
+
+<style type="text/css">
+	<![CDATA[
+	#icon_bg{				/*배경*/
+		fill:#99AEC8;		/*체움색상*/
+	}
+	#icon_clock{			/*시계 아이콘*/
+		fill:#FFFFFF;		/*체움색상*/
+	}
+  ]]>
+</style> 
+
+<path id="icon_bg" d="M15,13c0,1.104-0.896,2-2,2H2c-1.104,0-2-0.896-2-2V2c0-1.104,0.896-2,2-2h11c1.104,0,2,0.896,2,2V13z"/>
+<g id="icon_clock">
+	<rect x="9" y="10" width="1" height="1"/>
+	<rect x="5" y="10" width="1" height="1"/>
+	<rect x="4" y="11" width="1" height="1"/>
+	<rect x="10" y="11" width="1" height="1"/>
+	<path d="M10,3H5C3.896,3,3,3.896,3,5v3c0,1.104,0.896,2,2,2h5c1.104,0,2-0.896,2-2V5C12,3.896,11.104,3,10,3z M10,7
+		H8H7V6V4h1v2h2V7z"/>
+</g>
+</svg>

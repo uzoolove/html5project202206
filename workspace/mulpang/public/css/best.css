@@ -1,0 +1,50 @@
+#best_section {/*추천 쿠폰 페이지 섹션*/
+	margin-top: 10px;
+	width: 100%;
+	display: inline-block;
+}
+#best_section h1 {/*추천 쿠폰 페이지 제목*/
+	font-family: nanumGothicBoldWeb;
+	line-height: 40px;
+	color: #fff;
+	font-size: 16px;
+	background: linear-gradient(to bottom, #83766a, #4d4137);
+	text-align: center;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+#best_section #graph_by_sale_article>div {
+	width: 50%;
+	float: left;
+	box-sizing: border-box;
+	border: #a59b8c solid 1px;
+	background: #fff;
+}
+
+/* 그래프 경계선 중복 제거 */
+#best_section #graph_by_sale_article #graph_by_sale_div {
+	border-right: none;
+	border-bottom: none;
+}
+#best_section #graph_by_sale_article #graph_by_point_div {
+	border-bottom: none;
+}
+#best_section #graph_by_sale_article #graph_by_view_div {
+	border-right: none;
+}
+
+#best_section #graph_by_sale_article>div h2 {
+	background: linear-gradient(to bottom, #efede9, #dedbd7);
+	border-bottom: #a59b8c solid 1px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 100%;
+}
+#graph_by_sale_article > div{
+	height: 300px;
+	width: 472px;
+}
+#best_section #graph_by_sale_article>div canvas, #graph_by_reply {
+	height: 250px;
+	width: 472px;
+}

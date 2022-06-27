@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="190px" height="190px" viewBox="0 0 190 190" enable-background="new 0 0 190 190" xml:space="preserve">
+
+	 <style type="text/css">
+		<![CDATA[
+		#color_stop_01{			/*그라디언트 시작색 */
+			stop-color:#DF6400;
+		}
+		
+		#color_stop_02{			/*그라디언트 종료색 */
+			stop-color:#CC0000;
+		}
+		
+		#start{				/*별*/
+			fill:url(#gradient);
+			filter:url(#shadow_fillter);	/*그림자 필터*/		
+		}
+		
+		
+		#line{				/*선 그룹*/
+			/*display:none;*/
+		}		
+			#line_01{			/*분할 선01 */
+				 fill:none;
+				 stroke:#AB1C00;
+			}
+			#line_02{			/*분할 선02 */
+				 fill:none;
+				 stroke:#E9917E;
+			}
+      ]]>
+	</style>
+
+
+<defs>
+	<filter  id="shadow_fillter" filterUnits="objectBoundingBox">
+		<feGaussianBlur  stdDeviation="5" in="SourceAlpha" result="blur"></feGaussianBlur>
+		<feOffset  dy="3" dx="3" in="blur" result="offsetBlurredAlpha"></feOffset>
+		<feMerge>
+			<feMergeNode  in="offsetBlurredAlpha"></feMergeNode>
+			<feMergeNode  in="SourceGraphic"></feMergeNode>
+		</feMerge>
+	</filter>
+	
+	<linearGradient id="gradient" gradientUnits="userSpaceOnUse" x1="384.6602" y1="-227.9595" x2="384.6602" y2="-407.96" gradientTransform="matrix(1 0 0 -1 -290.1602 -222.46)">
+		<stop id="color_stop_01"  offset="0.2182" />
+		<stop id="color_stop_02"  offset="1" />
+	</linearGradient>
+</defs>	
+
+<g id="start">		
+	<polygon points="94.5,5.5 100.777,15.747 108.579,6.607 113.176,17.709 122.313,9.904 125.115,21.589 
+		135.359,15.31 136.3,27.289 147.4,22.688 146.456,34.667 158.141,31.859 155.332,43.543 167.313,42.599 162.711,53.7 
+		174.689,54.641 168.41,64.884 180.096,67.688 172.29,76.824 183.393,81.42 174.253,89.223 184.5,95.5 174.253,101.777 
+		183.393,109.578 172.29,114.176 180.096,123.313 168.41,126.115 174.689,136.359 162.711,137.299 167.313,148.4 155.332,147.455 
+		158.141,159.141 146.456,156.332 147.4,168.313 136.3,163.711 135.359,175.689 125.115,169.41 122.313,181.096 113.176,173.289 
+		108.579,184.393 100.777,175.252 94.5,185.5 88.223,175.252 80.421,184.393 75.824,173.289 66.688,181.096 63.885,169.41 
+		53.641,175.689 52.7,163.711 41.6,168.313 42.544,156.332 30.859,159.141 33.667,147.455 21.688,148.4 26.289,137.299 
+		14.311,136.359 20.59,126.115 8.904,123.313 16.71,114.176 5.607,109.578 14.747,101.777 4.5,95.5 14.747,89.223 5.607,81.42 
+		16.71,76.824 8.904,67.688 20.59,64.884 14.311,54.641 26.289,53.7 21.688,42.599 33.667,43.543 30.859,31.859 42.544,34.667 
+		41.6,22.688 52.7,27.289 53.641,15.31 63.885,21.589 66.688,9.904 75.824,17.709 80.421,6.607 88.223,15.747 	"/>
+</g>
+
+<g id="line">
+	<line id="line_01" x1="34.5" y1="78" x2="154.5" y2="78"/>
+	<line id="line_02" x1="34.5" y1="79" x2="154.5" y2="79"/>
+</g>
+</svg>

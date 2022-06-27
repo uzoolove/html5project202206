@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="utf-8">
+  <title>쿠폰 : 멀팡</title>
+  <meta name="description" content="멀티 캠퍼스 HTML5 강의용 데모 사이트">
+  <meta name="keywords" content="html5,css3,svg">
+  <link rel="shortcut icon" href="/image/favicon.ico">
+  <link rel="stylesheet" media="all" type="text/css" href="/css/layout.css">
+
+  <link rel="stylesheet" media="all" type="text/css" href="/css/detail.css">
+  <script src="/js/detail.js"></script>
+</head>
+<body>
+	<a href="#main" id="skipNavi">본문바로가기</a>
+	<div id="page">
+		<header id="header">
+      <hgroup>
+        <h1 class="logo">
+          <a href="/"><img src="/image/svg/logo.svg" alt="mulPang"></a>
+        </h1>
+        <h2 class="theme">
+          <img src="/image/svg/logo_text.svg" alt="오늘은 뭘 파니?">
+        </h2>
+      </hgroup>
+      <nav id="nav">
+        <h1 class="blind">메인메뉴</h1>
+        <ul>
+          <li class="today"><a href="/today.html">오늘</a></li>
+          <li class="near"><a href="/location.html">근처</a></li>
+          <li class="best"><a href="/best.html">추천</a></li>
+          <li class="all"><a href="/all.html">모두</a></li>
+        </ul>
+      </nav>
+      <div id="member_info">        
+        <!-- 회원정보 출력 영역 -->
+        <!--
+        <h1 class="blind">회원정보</h1>
+        <img src="/image/member/uzoolove@gmail.com" class="user_profile" alt="uzoolove@gmail.com 회원 이미지">
+        <a href="/mypage.html" class="go_mypage">마이 페이지로</a>
+        <a href="/today.html" class="logout">로그아웃</a>
+        -->
+        
+        <!-- 로그인 화면 출력 영역 -->
+        <h1 class="blind">로그인</h1>
+        <form id="simple_login" name="simple_login_form" action="#" method="post">
+          <label for="login_username">아이디</label>
+          <input type="email" id="login_username" name="_id" required placeholder="등록된 e-mail 입력">
+          <label for="login_password">비밀번호</label>
+          <input type="password" id="login_password" name="password" required placeholder="비밀번호 입력">
+          <input type="submit" value="로그인">
+        </form>
+        <a href="/join.html" class="member_join">회원가입</a>
+
+        
+      </div>
+      <div id="cart" class="carton">
+        <h2 class="interest">관심쿠폰</h2>
+        <p class="interest_cnt">2</p>
+        <ul>
+          <!-- 관심 쿠폰 출력 영역 -->
+          <li>
+            <a href="/detail.html"><img src="/image/coupon/coupon_16.jpg" alt="디저트 마카롱"></a>
+            <button class="cart_close">관심쿠폰 삭제</button>
+          </li>
+          <li>
+            <a href="/detail2.html"><img src="/image/coupon/coupon_02.jpg" alt="커피통 와플"></a>
+            <button class="cart_close">관심쿠폰 삭제</button>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div id="main">			
+			<section id="coupon">
+				<h1 class="blind">쿠폰 상세 정보</h1>
+				<div class="coupon_list">
+          <!-- 쿠폰 상세정보 출력 영역 -->
+          <article class="detail" data-couponid="coupon123">
+            <h1>디저트 마카롱</h1>
+            <img class="list_img" src="/image/coupon/coupon_16.jpg" alt="디저트 마카롱 메인 이미지">
+            <img class="detail_img" 
+              src="/image/coupon/coupon_16_detail.jpg" 
+              alt="디저트 마카롱 상세 이미지">
+            <section class="content">
+							<p class="note">
+                바삭하고 쫀득한 초코 마카롱과 망고 마카롱 사이에 새콤달콤한 패션망고크림과 상큼한 요거생크림, 신선한 과일을 담아낸 디저트
+							</p>
+              <ul class="coupon_info">
+                <li class="cost">정상가격 : <del>5500원</del></li>
+                <li class="discount">할인가격 : <em>4700원</em></li>
+                <li class="expire">유효기간 : 
+                  <time datetime="2099-01-01">2099-01-01</time> ~
+                  <time datetime="2099-12-31">2099-12-31</time>
+                </li>
+              </ul>
+              <ul class="coupon_current">
+                <li class="remain">잔여수량<span>0개</span></li>
+                <li class="term">판매기간 : 
+                  <time datetime="2099-01-01">2099-01-01</time> ~
+                  <time datetime="2099-12-31">2099-12-31</time>
+                </li>
+              </ul>
+              <!-- <a href="/buy.html" class="buy">구매하기</a> -->
+							<span class="soldout">매진</span>
+            </section>
+            <div class="coupon_tab">
+							<section class="gallery">
+								<h1 tabindex="0">갤러리</h1>
+								<div class="gallery_viewport">
+									<h1>동영상</h1>
+                  <img src="/image/no_video.jpg" alt="동영상 등록 안됨">
+								</div>
+								<article>
+									<h1>포토 리스트</h1>
+									<ul class="photo_list">
+                    <!-- 포토 리스트 출력 영역 -->						
+                    <li>
+                      <a href="/image/coupon/coupon_16_1.jpg" 
+                          title="디저트 마카롱/그린티">
+                        <img src="/image/coupon/coupon_16_1.jpg" 
+                            alt="디저트 마카롱/그린티">
+                      </a>
+                    </li>                  
+                    <li>
+                      <a href="/image/coupon/coupon_16_2.jpg" 
+                          title="디저트 마카롱/스트로베리">
+                        <img src="/image/coupon/coupon_16_2.jpg" 
+                            alt="디저트 마카롱/스트로베리">
+                      </a>
+                    </li>                  
+                  </ul>
+                  <div class="big_photo">
+                    <img width="300" height="250" 
+                      src="/image/coupon/coupon_16_1.jpg" 
+                      alt="디저트 마카롱/그린티">
+                  </div>
+								</article>
+							</section>
+							<section class="reply tab_off">
+								<h1 tabindex="0">쿠폰 후기 및 평점</h1>
+								<ul class="reply_list">
+                  <!-- 후기 목록 출력 영역 -->																			
+                  <li>
+                    <article>
+                      <span>★★★★★</span>
+                      <p>소지섭 봤어요.</p>
+                      <footer>
+                        <img src="/image/member/seulbinim@gmail.com" alt="seulbinim@gmail.com 회원 프로필 사진"> <span>seulbinim@gmail.com</span>
+                        <time datetime="2099-02-28">2099-02-28</time>
+                      </footer>
+                    </article>
+                  </li>
+                                      
+                  <li>
+                    <article>
+                      <span>★★★★★</span>
+                      <p>그린티보다는 스트로베리가 더 맛있어요.</p>
+                      <footer>
+                        <img src="/image/member/test@test.com" alt="test@test.com 회원 프로필 사진"> <span>test@test.com</span>
+                        <time datetime="2099-03-01">2099-03-01</time>
+                      </footer>
+                    </article>
+                  </li>
+                                      
+                  <li>
+                    <article>
+                      <span>★★★★</span>
+                      <p>최고입니다.</p>
+                      <footer>
+                        <img src="/image/member/uzoolove@gmail.com" alt="uzoolove@gmail.com 회원 프로필 사진"> <span>uzoolove@gmail.com</span>
+                        <time datetime="2099-03-03">2099-03-03</time>
+                      </footer>
+                    </article>
+                  </li>                  
+                </ul>
+							</section>
+							<section class="map tab_off">
+								<h1 tabindex="0">찾아오시는 길</h1>
+								<div class="map_div"><img src="/image/shop/shop_map_03.png" alt="투썸플레이스 압구정 지도 51K점"></div>
+								<article class="shop">
+                  <h1>
+                    <span class="company_name">투썸플레이스 압구정 51K점</span>
+                  </h1>
+                  <div>
+                    <dl>
+                      <dt>영업점 소개</dt>
+                      <dd>
+                        <img src="/image/shop/shop_03.jpg" alt="투썸 플레이스 압구정 전경">
+                        <p class="company_desc">스타일리쉬 '소간지' 공간. 매장 곳곳 배우 소지섭의 섬세한 감각이 당신에게 특별한 가치를 선물합니다.</p>
+                      </dd>
+                      <dt>찾아 오시는길</dt>
+                      <dd>
+                        압구정역 3번 출구에 위치한 CGV 압구정 신관 1층
+                      </dd>
+                      <dt>영업시간</dt>
+                      <dd>10:00 ~ 22:00</dd>
+                      <dt>문의전화 / e-mail</dt>
+                      <dd>
+                        전화 : <a href="tel:02-444-5555">02-444-5555</a> / e-mail : <a href="mailto:two@naver.com">two@naver.com</a>
+                      </dd>
+                    </dl>
+                  </div>
+                </article>
+							</section>
+            </div>	
+            <button type="button" class="btn_add_cart">관심쿠폰등록</button>
+            <button type="button" class="btn_close_coupon_detail">쿠폰 상세 보기 닫기</button>
+          </article>
+				</div>
+			</section>
+		</div>
+		<footer id="footer">
+      <h1 class="logo">
+        <a href="http://www.multicampus.com"><img src="/image/logo.gif" alt="멀티캠퍼스 로고"> </a>
+      </h1>
+      <ul class="menu">
+        <li><a href="http://career.multicampus.com/">채용안내</a></li>
+        <li><a href="http://www.credu.com/web/join/check/provision.html">이용약관</a></li>
+        <li><a href="http://www.credu.com/web/credu/html/learn/user/member/pop_provision.html">개인정보취급방침</a></li>
+        <li><a href="http://www.credu.com/main/credu/user/community/zu_contactus_I.jsp?p_menuid=090030000000000&p_site=HOME">1:1문의</a></li>
+        <li><a href="http://www.credu.com/main/credu/user/community/zu_eduInquire_L.jsp?p_menuid=090040000000000">기업문의</a></li>
+        <li><a href="http://www.credu.com/main/credu/user/community/zu_location.jsp?p_menuid=090060000000000">찾아오시는길</a></li>
+      </ul>
+      <p class="info">Mulpang㈜ 대표이사 : 김철수, 개인정보 관리 책임자 : 이영희, 사업자등록번호:123-45-6789</p>
+      <address>서울특별시 강남구 언주로 508 10~17층(역삼동, 서울상록빌딩) 고객지원 1544-9001 평일 상담시간 : 8:00~20:00 휴일 상담시간 : 9:00~18:00(휴일 점심시간 12:00~13:00 제외)</address>
+      <p class="copyright">Copyright&copy; 2099 MULPANG. All right reserved. Contact webmaster for more information</p>
+    </footer>	
+	</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* 쿠폰 검색 */
+#search {/*쿠폰 검색영역*/
+	background: #8b704e;
+	border-radius: 5px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+#search h1, #search legend {/*쿠폰 검색영역 제목*/
+	width: 80px;
+	height: 40px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	float: left;
+	padding-left: 25px;
+}
+#search h1:before {/*쿠폰 검색영역 제목 영어로 변경*/
+	content: "Coupon Search ";
+	font-family: akzidenz;
+	color: #e3d7af;
+	font-size: 140%;
+	line-height: 40px;
+}
+#search label {
+	color: #dcd4ca;
+	font-weight: bold;
+	letter-spacing: -1px;
+	display: inline-block;
+	padding-right: 5px;
+	background: url(svg/dot.svg) 0 16px no-repeat;
+	padding-left: 8px;
+	margin-left: 10px;
+}
+#search input[type="submit"] {
+	background: #53432f url(svg/search.svg) 10px center no-repeat;
+	border: #463826 solid 1px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #765f42;
+	padding: 0 10px 0 30px;
+	margin-left: 30px;
+	height: 22px;
+	color: #fff;
+	font-weight: bold;
+}
+
+
+.coupon_list > article {
+	position: relative;
+	width: 100%;
+	height: 180px;
+	background: #fff;
+	box-sizing: border-box;
+	border: #6d5d4f solid 2px;
+	padding: 20px 20px 20px 650px;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+.coupon_list > article>h1 {/*쿠폰 제목*/
+	font-size: 140%;
+	width: 306px;
+}
+.coupon_list > article .detail_img {/*쿠폰 대표 이미지*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 623px;
+	height: 176px;
+}
+.coupon_list > article .content {/*쿠폰 상세내용 설명 영역*/
+	width: 306px;
+}
+.coupon_list > article .content>h1 {
+	position: absolute;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.coupon_list > article .content .coupon_info {/*쿠폰정보*/
+	margin-left: 20px;
+}
+.coupon_list > article .content .coupon_info li {
+	line-height: 22px;
+	background: url(svg/coupon_count.svg) 0 3px no-repeat;
+	color: #6d8bb1;
+	padding-left: 22px;
+}
+.coupon_list > article .content .coupon_info .expire, .coupon_list > article .content .coupon_info .term {/*쿠폰 기간*/
+	background: url(svg/coupon_time.svg) 0 3px no-repeat;
+}
+/*================================================쿠폰리스트 리스트 형식 미리보기*/
+	
+
+

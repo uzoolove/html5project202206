@@ -1,0 +1,62 @@
+#my_coupon_section {
+	background: #ecf3e6;
+	border: #678b33 solid 2px;
+	padding: 20px 40px 40px 40px;
+}
+#my_coupon_section>h1 {
+	font-family: nanumGothicBoldWeb;
+	color: #678b33;
+	font-size: 16px;
+	text-align: center;
+	height: 60px;
+}
+#my_coupon_section>article {
+	display: inline-block;
+	border: #ccc solid 1px;
+	background: #fff;
+	width: 180px;
+	padding: 10px;
+	box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+	font-family: nanumGothicBoldWeb;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+#my_coupon_section>article:nth-child(even) {
+	transform: rotate(5deg);
+}
+#my_coupon_section>article:nth-child(3n) {
+	transform: rotate(-15deg);
+}
+#my_coupon_section>article:hover, #my_coupon_section>article:focus {
+	transform: rotate(0deg);
+	outline: #81a539 solid 4px;
+	position: relative;
+	z-index: 100;
+	transform: scale(1.2);
+}
+#my_coupon_section>article h1 {
+	text-align: center;
+	line-height: 30px;
+	font-size: 130%;
+}
+#my_coupon_section>article img {
+	width: 180px;
+	height: 170px;
+	margin: 10px 0;
+}
+#my_coupon_section>article p, #my_coupon_section>article time {
+	color: #666;
+	line-height: 18px;
+}
+#my_coupon_section input[type="submit"]{/* 후기 등록 버튼 */
+	background: linear-gradient(#f9a837, #f68001, #f9a837);
+	border: #da8402 solid 1px;
+	border-radius: 2px;
+	box-shadow: 1px 1px 1px #dcdddd;
+	color: #fff;
+	font-weight: bold;
+	padding: 3px 10px;
+	font-size: 11px;
+	letter-spacing: -1px;
+	vertical-align: middle;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- team coForward  :  drawing by Kim eun yung / coding by Na!-->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" width="18px" height="19px" viewBox="0 0 18 19" enable-background="new 0 0 18 19" xml:space="preserve">
+<rect fill="#9A8F84" width="8" height="9"/>
+<rect y="10" fill="#9A8F84" width="8" height="9"/>
+<rect x="9" y="14" fill="#9A8F84" width="9" height="5"/>
+<rect x="9" y="5" fill="#9A8F84" width="9" height="8"/>
+<rect x="14" fill="#9A8F84" width="4" height="4"/>
+<rect x="9" fill="#9A8F84" width="4" height="4"/>
+</svg>

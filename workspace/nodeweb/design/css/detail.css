@@ -1,0 +1,397 @@
+/*쿠폰리스트 공통========================================================*/
+#coupon {/*쿠폰 리스트 영역*/
+  position: relative;
+  min-height: 650px;
+}
+.content {/*쿠폰 상세내용 설명 영역*/
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 55px;
+	border: #fff solid 4px;
+	border-top: none;
+	box-sizing: border-box;
+}
+.content>h1 {/*쿠폰 콘텐츠 제목*/
+	position: absolute;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.detail .remain {/*쿠폰 상세 잔여수량*/
+	position: absolute;
+	bottom: -60px;
+	right: -60px;
+	background: url(svg/star.svg) no-repeat;
+	width: 230px;
+	height: 230px;
+	background-size:cover;
+	box-sizing: border-box;
+	padding-top: 45px;
+	font-family: nanumGothicBoldWeb;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	transform: rotate(-45deg);
+}
+.detail .remain span {
+	font-size: 20px;
+	display: block;
+	text-align: center;
+}
+.detail .term {/*쿠폰 상세 판매기간*/
+	position: absolute;
+	bottom: -50px;
+	right: -30px;
+	width: 180px;
+	height: 180px;
+	box-sizing: border-box;
+	padding-top: 73px;
+	padding-left: 30px;
+	font-family: nanumGothicBoldWeb;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+	transform: rotate(-45deg);
+}
+.detail .term time:first-child {
+  display: none;
+}
+.detail .term time:last-child {
+	font-size: 16px;
+	display: block;
+	text-align: center;
+}
+
+/* 상세 정보 */
+.detail {
+	position: absolute;
+	background: #fff;
+	top: 40px;
+	left: 0px;
+	z-index: 100;
+	width: 960px;
+	height: 650px;
+	border: none;
+	padding: 0;
+	overflow: hidden;
+	transition: all 0.5s;
+}
+.detail>h1 {/*쿠폰 제목*/
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 425px;
+	height: 280px;
+	padding: 25px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,0.3);
+	font-family: nanumGothicBoldWeb;
+	font-size: 35px;
+	color: #fff;
+}
+
+.detail>.list_img {
+	display: none;
+}
+.detail>.detail_img {/*상세보기 상태의 쿠폰 상세 이미지*/
+	border: #6d5d4f solid 5px;
+	width: 950px;
+	height: 280px;
+}
+.detail .content {/*쿠폰 상세내용 설명 영역*/
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 950px;
+	height: 280px;
+	overflow: hidden;
+}
+.detail .content>h1 {
+	position: absolute;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.detail .note {/*쿠폰 상세 설명 내용*/
+	position: absolute;
+	top: 80px;
+	left: 30px;
+	width: 350px;
+	height: 110px;
+	font-family: nanumGothicBoldWeb;
+	color: #fff;
+}
+.detail .coupon_info {/*쿠폰정보*/
+	position: absolute;
+	top: 200px;
+	width: 100%;
+	font-size: 15px;
+	font-family: nanumGothicBoldWeb;
+	font-weight: bold;
+	color: #fff;
+}
+.detail .cost {/*기준가격*/
+	padding-left: 220px;
+	font-style: normal;
+}
+.detail .discount {/*할인가격*/
+	padding-left: 220px;
+}
+.detail .discount em {/*할인가격*/
+	font-style: normal;
+	font-size: 24px;
+}
+.detail .expire {/*유효기간, 사용기간*/
+	position: absolute;
+	top: 55px;
+	left: 75px;
+	font-size: 12px;
+}
+
+.detail .buy, .detail .soldout {/*구매하기 버튼*/	
+	font-family: nanumGothicBoldWeb;
+	color: #fff;
+	font-size: 20px;
+	width: 120px;
+	line-height: 50px;
+	padding: 0 8px 5px 60px;
+	background: url(svg/buy.svg) 13px 14px no-repeat,  url(svg/button.svg) no-repeat;
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+}
+
+/* 탭 */
+.detail .coupon_tab>section {/*쿠폰 별 추가 정보 공통*/
+	position: absolute;
+	left: 0;
+	top: 290px;
+	width: 100%;
+	height: 360px;
+	padding: 60px 20px 20px 20px;
+	box-sizing: border-box;
+	border: #a59b8c solid 1px;
+	background: url(bg/bg_tab.jpg) repeat-x;
+	transition: height 0.5s;
+}
+.detail .coupon_tab>section>h1 {/*쿠폰 별 추가 탭 제목 정보 공통*/
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	cursor: pointer;
+	width: 149px;
+	text-align: center;
+	line-height: 39px;
+	border-right: #a59b8c solid 1px;
+	border-bottom: #fff solid 1px;
+	background: #fff;
+}
+.detail .gallery>h1 {/*첫번째 탭 제목*/
+	left: 0;
+}
+.detail .reply>h1 {/*두째 탭 제목*/
+	left: 150px;
+}
+.detail .map>h1 {/*세번째 탭 제목*/
+	left: 300px;
+}
+.detail .coupon_tab>section.tab_off {/*상세 내용 비활성 탭*/
+	height: 41px;
+	padding-top: 0px;
+	overflow: hidden;
+	transition: height 0.5s;
+}
+.detail .coupon_tab>section.tab_off h1 {/*상세 내용 비활성 탭 제목 정보 공통*/
+	background: #dedbd7;
+	border-bottom: #a59b8c solid 1px;
+}
+.detail section *:not(h1) {/*상세 내용 비활성 탭의 내용*/
+	transition: all 0.5s;
+}
+.detail .tab_off *:not(h1) {/*상세 내용 비활성 탭의 내용*/
+	display: none;
+	transition: all 0.5s;
+}
+
+/* 갤러리 */
+.detail .gallery_viewport {/*이미지와 비디오가 보여지는 영역*/
+	position: relative;
+	width: 400px;
+	height: 252px;
+}
+.gallery_viewport > h1{
+	text-align: left;
+	
+}
+.gallery_viewport video {/*비디오 보기 영역*/
+	width: 100%;
+	height: 100%;
+}
+.gallery_viewport img {/*비디오 보기 영역*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 266px;
+	height: auto;
+
+}
+.detail .gallery article {/*동영상 및 이미지 리스트 영역*/
+	position: absolute;
+	top: 60px;
+	left: 450px;
+}
+.detail .gallery article h1, .detail .gallery .gallery_viewport h1 {
+	font-size: 12px;
+	height: 20px;
+	background: url(svg/dot.svg) 0 5px no-repeat;
+	padding-left: 8px;
+}
+.detail .gallery .photo_list{
+	width:200px;
+	float:left;
+}
+.detail .gallery .big_photo{
+	width:300px;
+	height:250px;
+	float:left;	
+	border:1px solid #000;	
+}
+.detail .gallery li {/* 포토 리스트의 아이템*/
+	display: inline-block;
+	margin-bottom:5px;
+}
+.detail .gallery article li a {/*동영상 및 이미지 링크*/
+	display: inline-block;
+	width: 95px;
+	height: 100px;
+}
+.detail .gallery article li img {/*동영상 및 이미지 리스트의 이미지*/
+	width: 100%;
+	height: 100%;
+}
+
+/* 쿠폰 후기 및 평점 */
+.detail .reply ul {/*상품 리플 리스트 영역*/
+	width: 920px;
+	height: 280px;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	display: flex;
+	flex-flow: row wrap;
+}
+.detail .reply li {/*상품 리플 리스트 아이템*/
+	box-sizing: border-box;
+	width: 50%;
+	margin: 0;
+	padding-right: 20px;
+	margin-bottom: 10px;
+}
+.detail .reply article {/*상품 리플 아티클*/
+	position: relative;
+	min-height: 70px;
+	padding-top: 10px;
+}
+.detail .reply ul li:nth-child(n+3) article {/*상품 리플 아티클*/
+	border-top: 1px solid #aaa;
+}
+.detail .reply article>span {/*상품 리플 평점*/
+	margin-left: 70px;
+	line-height: 18px;
+	color: #F60;
+	font-weight: bold;
+}
+.detail .reply article>p {/*상품 리플 내용*/
+	display: block;
+	margin-left: 70px;
+	line-height: 18px;
+}
+.detail .reply footer {/*상품 리플 풋터*/
+	color: #666;
+}
+.detail .reply img {/*상품 리플 작성자 프로필 이미지*/
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 60px;
+	height: 60px;
+}
+.detail .reply footer time{
+	position: absolute;
+	top: 10px;
+	right: 0;
+}
+.detail .reply footer span {
+	display: block;
+	text-align: right;
+}
+
+/* 찾아오시는 길 */
+.detail .map .map_div {/*지도 div*/
+	float: left;
+	width: 550px;
+	height: 280px;
+	border: #ccc solid 1px;
+}
+.detail .map article {/*찾아 오시는 길 영역*/
+	margin-left: 570px;
+}
+.detail .map article>h1 {/*찾아 오시는 길 제목*/
+	font-size: 14px;
+	height: 25px;
+}
+.slide> .detail .map article>h1 .company_name {
+	display: inline;
+	color: #e27a00;
+}
+.detail .map article>div {/*회사소개 내용*/
+	padding: 20px;
+	height: 216px;
+	margin-bottom: 10px;
+	border: #ccc solid 1px;
+}
+.detail .map article>div dt {/*회사소개 항목*/
+	font-weight: bold;
+}
+.detail .map article>div dd {/*회사소개 항목내용*/
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+.detail .map article>div dd img {/*회사로고*/
+	max-width: 100px;
+	max-height: 70px;
+	float: left;
+}
+.detail .map article>div dd p.company_desc {/*회사소개 내용*/
+	min-height: 70px;
+	margin-left: 100px;
+}
+.detail .btn_add_cart {/*관심 쿠폰 담기 버튼*/
+	position: absolute;
+	top: 0;
+	right: 50px;
+	background: #6d5d4f url(svg/cart.svg) center center no-repeat;
+	width: 50px;
+	padding-top: 50px;
+	height: 0;
+	overflow: hidden;
+	border-right: #8a7d72 solid 1px;
+}
+.detail .btn_close_coupon_detail {/*상세보기 닫기 내용*/
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #6d5d4f url(svg/close.svg) center center no-repeat;
+	width: 50px;
+	padding-top: 50px;
+	height: 0;
+	overflow: hidden;
+}
