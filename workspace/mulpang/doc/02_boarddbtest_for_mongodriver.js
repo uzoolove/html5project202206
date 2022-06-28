@@ -59,7 +59,7 @@ async function task(){
 }
 
 // 등록할 게시물
-var b1 = {no: 1, name: "admin", title: "[공지] 게시판 사용규칙 안내입니다.", content: "잘 쓰세요."};
+const b1 = {no: 1, name: "admin", title: "[공지] 게시판 사용규칙 안내입니다.", content: "잘 쓰세요."};
 var b2 = {no: 2, name: "kim", title: "첫번째 글을 올리네요.", content: "잘 보이나요?"};
 var b3 = {no: 3, name: "lee", title: "그렇다면 두번째 글은...", content: "잘 보이겠죠?"};
 
@@ -137,8 +137,8 @@ async function todo11(){
   var data = await db.coupon.find()
     .project({couponName: 1, 'saleDate.start': 1})
     .sort({'saleDate.start': -1}) // -1: 내림차순, 1: 오름차순
-    .skip(5*3)
-    .limit(5)
+    .skip(5)
+    .limit(4)
     .toArray();
   
   console.log(data.length, '건 조회됨.');

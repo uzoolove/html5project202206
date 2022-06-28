@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title>쿠폰 : <%= title %></title>
+  <title>쿠폰 : 멀팡</title>
   <meta name="description" content="멀티 캠퍼스 HTML5 강의용 데모 사이트">
   <meta name="keywords" content="html5,css3,svg">
   <link rel="shortcut icon" href="/image/favicon.ico">
@@ -26,7 +26,7 @@
       <nav id="nav">
         <h1 class="blind">메인메뉴</h1>
         <ul>
-          <li class="today"><a href="/today.html">오늘</a></li>
+          <li class="today"><a href="/today">오늘</a></li>
           <li class="near"><a href="/location.html">근처</a></li>
           <li class="best"><a href="/best.html">추천</a></li>
           <li class="all"><a href="/all.html">모두</a></li>
@@ -90,66 +90,27 @@
 				<div id="time"><time datetime="2099-12-31">2099-12-31</time></div>
 				<div class="coupon_list">
           <!-- 쿠폰 목록 출력 영역 -->
-          <article class="p0" tabindex="0">
-            <h1>디저트 마카롱</h1>
-            <a href="/detail.html">
-              <img class="list_img" src="/image/coupon/coupon_16.jpg" alt="디저트 마카롱 메인 이미지">
-            </a>
-            <section class="content">						
-              <ul class="coupon_info">									
-                <li class="discount">할인가격 : <em>4700원</em></li>
-              </ul>
-            </section>
-          </article>
-        
-          <article class="p1" tabindex="0">
-            <h1>커피통 와플</h1>
-            <a href="/detail2.html">
-              <img class="list_img" src="/image/coupon/coupon_02.jpg" alt="커피통 와플 메인 이미지">
-            </a>
-            <section class="content">						
-              <ul class="coupon_info">									
-                <li class="discount">할인가격 : <em>12000원</em></li>
-              </ul>
-            </section>
-          </article>
-        
-          <article class="p2" tabindex="0">
-            <h1>물냉면</h1>
-            <a href="/detail.html">
-              <img class="list_img" src="/image/coupon/coupon_01.jpg" alt="물냉면 메인 이미지">
-            </a>
-            <section class="content">						
-              <ul class="coupon_info">									
-                <li class="discount">할인가격 : <em>6000원</em></li>
-              </ul>
-            </section>
-          </article>
-        
-          <article class="p3" tabindex="0">
-            <h1>베스킨 라빈스</h1>
-            <a href="/detail.html">
-              <img class="list_img" src="/image/coupon/coupon_07.jpg" alt="베스킨 라빈스 싱글콘">
-            </a>
-            <section class="content">						
-              <ul class="coupon_info">									
-                <li class="discount">할인가격 : <em>10000원</em></li>
-              </ul>
-            </section>
-          </article>
-        
-          <article class="p4" tabindex="0">
-            <h1>널부 쭈꾸미</h1>
-            <a href="/detail.html">
-              <img class="list_img" src="/image/coupon/coupon_12.jpg" alt="널부 쭈꾸미">
-            </a>
-            <section class="content">						
-              <ul class="coupon_info">									
-                <li class="discount">할인가격 : <em>15000원</em></li>
-              </ul>
-            </section>
-          </article>
-          
+          <% list.forEach(function(coupon, i){ %>
+            <article class="p<%=i%>" tabindex="0">
+              <h1><%=coupon.couponName%></h1>
+              <a href="/coupons/<%=coupon._id%>">
+                <img class="list_img" 
+                  src="/image/coupon/<%=coupon.image.main.file%>" 
+                  alt="<%=coupon.image.main.desc%>">
+              </a>
+              <section class="content">						
+                <ul class="coupon_info">									
+                  <li class="discount">할인가격 : <em><%=coupon.price%>원</em></li>
+                </ul>
+              </section>
+            </article>
+          <% }); %>
+
+          <% for(let i=list.length; i<5; i++){ %>
+            <article class="p<%=i%> no_content">
+              <h1>등록된 상품이 없습니다.</h1>
+            </article>
+          <% } %>
 				</div>
 			</section>
 			<div id="coupon_control">
