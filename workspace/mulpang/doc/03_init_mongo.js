@@ -153,7 +153,7 @@ async function registCoupon(){
 
   shopObjId = shops;
   var coupons = [
-      {
+    {
       _id: couponObjId[15],
       shopId: shopObjId[2]._id, 
       region: "홍대",
