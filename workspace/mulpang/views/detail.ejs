@@ -8,6 +8,7 @@
   <meta name="keywords" content="html5,css3,svg">
   <link rel="shortcut icon" href="/image/favicon.ico">
   <link rel="stylesheet" media="all" type="text/css" href="/css/layout.css">
+  <script src="/js/lib/jquery-1.12.4.min.js"></script>
 
   <link rel="stylesheet" media="all" type="text/css" href="/css/detail.css">
   <script src="/js/detail.js"></script>
@@ -76,134 +77,117 @@
 				<h1 class="blind">쿠폰 상세 정보</h1>
 				<div class="coupon_list">
           <!-- 쿠폰 상세정보 출력 영역 -->
-          <article class="detail" data-couponid="coupon123">
-            <h1>디저트 마카롱</h1>
-            <img class="list_img" src="/image/coupon/coupon_16.jpg" alt="디저트 마카롱 메인 이미지">
+          <article class="detail" data-couponid="<%=coupon._id%>">
+            <h1><%=coupon.couponName%></h1>
+            <img class="list_img" 
+              src="/image/coupon/<%=coupon.image.main.file%>" 
+              alt="<%=coupon.image.main.desc%>">
             <img class="detail_img" 
-              src="/image/coupon/coupon_16_detail.jpg" 
-              alt="디저트 마카롱 상세 이미지">
+              src="/image/coupon/<%=coupon.image.detail.file%>" 
+              alt="<%=coupon.image.detail.desc%>">
             <section class="content">
-							<p class="note">
-                바삭하고 쫀득한 초코 마카롱과 망고 마카롱 사이에 새콤달콤한 패션망고크림과 상큼한 요거생크림, 신선한 과일을 담아낸 디저트
-							</p>
+							<p class="note"><%=coupon.desc%></p>
               <ul class="coupon_info">
-                <li class="cost">정상가격 : <del>5500원</del></li>
-                <li class="discount">할인가격 : <em>4700원</em></li>
+                <li class="cost">정상가격 : <del><%=coupon.primeCost%>원</del></li>
+                <li class="discount">할인가격 : <em><%=coupon.price%>원</em></li>
                 <li class="expire">유효기간 : 
-                  <time datetime="2099-01-01">2099-01-01</time> ~
-                  <time datetime="2099-12-31">2099-12-31</time>
+                  <time datetime="<%=coupon.useDate.start%>"><%=coupon.useDate.start%></time> ~
+                  <time datetime="<%=coupon.useDate.finish%>"><%=coupon.useDate.finish%></time>
                 </li>
               </ul>
               <ul class="coupon_current">
-                <li class="remain">잔여수량<span>0개</span></li>
+                <li class="remain">잔여수량<span><%=coupon.quantity-coupon.buyQuantity%>개</span></li>
                 <li class="term">판매기간 : 
-                  <time datetime="2099-01-01">2099-01-01</time> ~
-                  <time datetime="2099-12-31">2099-12-31</time>
+                  <time datetime="<%=coupon.saleDate.start%>"><%=coupon.saleDate.start%></time> ~
+                  <time datetime="<%=coupon.saleDate.finish%>"><%=coupon.saleDate.finish%></time>
                 </li>
               </ul>
-              <!-- <a href="/buy.html" class="buy">구매하기</a> -->
-							<span class="soldout">매진</span>
+              <% if(coupon.quantity > coupon.buyQuantity){ %>
+                <a href="/purchases/<%=coupon._id%>" class="buy">구매하기</a>
+              <% }else{ %>
+                <span class="soldout">매진</span>
+              <% } %>
             </section>
             <div class="coupon_tab">
 							<section class="gallery">
 								<h1 tabindex="0">갤러리</h1>
 								<div class="gallery_viewport">
 									<h1>동영상</h1>
-                  <img src="/image/no_video.jpg" alt="동영상 등록 안됨">
+                  <% if(coupon.video){ %>
+                    <video 
+                      src="/video/<%=coupon.video.src%>" 
+                      controls preload="none" poster="/video/<%=coupon.video.poster%>"
+                      alt="<%=coupon.video.desc%>">
+                    </video>
+                  <% }else{ %>
+                    <img src="/image/no_video.jpg" alt="동영상 등록 안됨">
+                  <% } %>                  
 								</div>
 								<article>
-									<h1>포토 리스트</h1>
-									<ul class="photo_list">
-                    <!-- 포토 리스트 출력 영역 -->						
-                    <li>
-                      <a href="/image/coupon/coupon_16_1.jpg" 
-                          title="디저트 마카롱/그린티">
-                        <img src="/image/coupon/coupon_16_1.jpg" 
-                            alt="디저트 마카롱/그린티">
-                      </a>
-                    </li>                  
-                    <li>
-                      <a href="/image/coupon/coupon_16_2.jpg" 
-                          title="디저트 마카롱/스트로베리">
-                        <img src="/image/coupon/coupon_16_2.jpg" 
-                            alt="디저트 마카롱/스트로베리">
-                      </a>
-                    </li>                  
+                  <h1>포토 리스트</h1>
+                  <ul class="photo_list">
+                    <% coupon.image.etc.forEach(function(etc){ %>
+                      <li><a href="/image/coupon/<%=etc.file%>" title="<%=etc.desc%>"><img src="/image/coupon/<%=etc.file%>" alt="<%=etc.desc%>"></a></li>
+                    <% }); %>
                   </ul>
-                  <div class="big_photo">
-                    <img width="300" height="250" 
-                      src="/image/coupon/coupon_16_1.jpg" 
-                      alt="디저트 마카롱/그린티">
-                  </div>
-								</article>
-							</section>
-							<section class="reply tab_off">
-								<h1 tabindex="0">쿠폰 후기 및 평점</h1>
-								<ul class="reply_list">
-                  <!-- 후기 목록 출력 영역 -->																			
-                  <li>
-                    <article>
-                      <span>★★★★★</span>
-                      <p>소지섭 봤어요.</p>
-                      <footer>
-                        <img src="/image/member/seulbinim@gmail.com" alt="seulbinim@gmail.com 회원 프로필 사진"> <span>seulbinim@gmail.com</span>
-                        <time datetime="2099-02-28">2099-02-28</time>
-                      </footer>
-                    </article>
-                  </li>
-                                      
-                  <li>
-                    <article>
-                      <span>★★★★★</span>
-                      <p>그린티보다는 스트로베리가 더 맛있어요.</p>
-                      <footer>
-                        <img src="/image/member/test@test.com" alt="test@test.com 회원 프로필 사진"> <span>test@test.com</span>
-                        <time datetime="2099-03-01">2099-03-01</time>
-                      </footer>
-                    </article>
-                  </li>
-                                      
-                  <li>
-                    <article>
-                      <span>★★★★</span>
-                      <p>최고입니다.</p>
-                      <footer>
-                        <img src="/image/member/uzoolove@gmail.com" alt="uzoolove@gmail.com 회원 프로필 사진"> <span>uzoolove@gmail.com</span>
-                        <time datetime="2099-03-03">2099-03-03</time>
-                      </footer>
-                    </article>
-                  </li>                  
+                  <% if(coupon.image.etc.length > 0){ %>
+                    <div class="big_photo">
+                      <img src="/image/coupon/<%=coupon.image.etc[0].file%>" width="300" height="250" alt="<%=coupon.image.etc[0].desc%>">
+                    </div>
+                  <% } %>
+                </article>
+              </section>
+              <section class="reply tab_off">
+                <h1 tabindex="0">쿠폰 후기 및 평점</h1>
+                <ul class="reply_list">
+                  <% coupon.epilogueList.forEach(function(epilogue){ %>                    
+                    <li>
+                      <article>
+                        <span><%=toStar(epilogue.satisfaction)%></span>
+                        <p><%=epilogue.content%></p>
+                        <footer>
+                          <img src="/image/member/<%=epilogue.writer%>" alt="<%=epilogue.writer%> 회원 프로필 사진"> <span><%=epilogue.writer%></span>
+                          <time datetime="<%=epilogue.regDate%>"><%=epilogue.regDate%></time>
+                        </footer>
+                      </article>
+                    </li>
+                    <% }); %>
                 </ul>
-							</section>
-							<section class="map tab_off">
-								<h1 tabindex="0">찾아오시는 길</h1>
-								<div class="map_div"><img src="/image/shop/shop_map_03.png" alt="투썸플레이스 압구정 지도 51K점"></div>
-								<article class="shop">
+              </section>
+              <section class="map tab_off">
+                <h1 tabindex="0">찾아오시는 길</h1>
+                <div class="map_div">
+                  <img src="/image/shop/<%=coupon.shop.image.map.file%>"
+                       alt="<%=coupon.shop.image.map.desc%>">
+                 </div>
+                <article class="shop">
                   <h1>
-                    <span class="company_name">투썸플레이스 압구정 51K점</span>
+                    <span class="company_name"><%=coupon.shop.shopName%></span>
                   </h1>
                   <div>
                     <dl>
                       <dt>영업점 소개</dt>
                       <dd>
-                        <img src="/image/shop/shop_03.jpg" alt="투썸 플레이스 압구정 전경">
-                        <p class="company_desc">스타일리쉬 '소간지' 공간. 매장 곳곳 배우 소지섭의 섬세한 감각이 당신에게 특별한 가치를 선물합니다.</p>
+                        <img src="/image/shop/<%=coupon.shop.image.interior.file%>"
+                               alt="<%=coupon.shop.image.interior.desc%>">
+                        <p class="company_desc"><%=coupon.shop.shopDesc%></p>
                       </dd>
                       <dt>찾아 오시는길</dt>
                       <dd>
-                        압구정역 3번 출구에 위치한 CGV 압구정 신관 1층
+                        <%=coupon.shop.directions%>
                       </dd>
                       <dt>영업시간</dt>
-                      <dd>10:00 ~ 22:00</dd>
+                      <dd><%=coupon.shop.officeHours.open%> ~ <%=coupon.shop.officeHours.close%></dd>
                       <dt>문의전화 / e-mail</dt>
                       <dd>
-                        전화 : <a href="tel:02-444-5555">02-444-5555</a> / e-mail : <a href="mailto:two@naver.com">two@naver.com</a>
+                        전화 : <a href="tel:<%=coupon.shop.tel%>"><%=coupon.shop.tel%></a>
+                     / e-mail : <a href="mailto:<%=coupon.shop.email%>"><%=coupon.shop.email%></a>
                       </dd>
                     </dl>
                   </div>
                 </article>
-							</section>
-            </div>	
+              </section>
+            </div>  
             <button type="button" class="btn_add_cart">관심쿠폰등록</button>
             <button type="button" class="btn_close_coupon_detail">쿠폰 상세 보기 닫기</button>
           </article>

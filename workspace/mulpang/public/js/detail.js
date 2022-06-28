@@ -7,17 +7,25 @@ $(function(){
 
 // 상세보기 탭 클릭
 function setTabEvent(){	
-
+  $('.coupon_tab > section').on('click', function(){
+    $(this).removeClass('tab_off').siblings().addClass('tab_off');
+  });
 }
 
 // 갤러리 이미지 클릭
 function setGalleryEvent(){
-	
+	let bigPhoto = $('.big_photo > img');
+  $('.photo_list a').on('click', function(event){
+    event.preventDefault(); // 브라우저의 기본동작 취소(a 태그 동작 안하도록)
+    bigPhoto.attr('src', $(this).attr('href'));
+  });
 }
 
 // 상세보기 닫기 클릭
 function setCloseEvent(){
-	
+	$('.btn_close_coupon_detail').on('click', function(){
+    window.history.back();
+  });
 }
 
 // 관심쿠폰 등록 이벤트

@@ -8,6 +8,7 @@
   <meta name="keywords" content="html5,css3,svg">
   <link rel="shortcut icon" href="/image/favicon.ico">
   <link rel="stylesheet" media="all" type="text/css" href="/css/layout.css">
+  <script src="/js/lib/jquery-1.12.4.min.js"></script>
 
   <link rel="stylesheet" media="all" type="text/css" href="/css/detail.css">
   <script src="/js/buy.js"></script>
@@ -67,15 +68,17 @@
 				<div class="coupon_list">
           <!-- 쿠폰 상세정보 출력 영역 -->		
           <article class="detail">
-            <h1>커피통 와플</h1>
+            <h1><%=coupon.couponName%></h1>
             <img class="detail_img" 
-                  src="/image/coupon/coupon_02_detail.jpg" 
-                  alt="커피통 와플 상세 이미지">
+                  src="/image/coupon/<%=coupon.image.detail.file%>" 
+                  alt="<%=coupon.image.detail.desc%>">
 
             <!-- 구매하기 -->
             <section class="form_section">
               <h1>구매하기</h1>
               <form novalidate>
+                <input type="hidden" name="couponId" value="<%=coupon._id%>">
+                <input type="hidden" name="unitPrice" value="<%=coupon.price%>">
                 <img src="/css/svg/cart_form.svg">
                 <table>
                   <tbody>
