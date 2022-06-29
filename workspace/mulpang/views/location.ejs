@@ -3,6 +3,8 @@
 <head>
   <%- include('layout/head', {title: '근처 쿠폰'}) %>
   <link rel="stylesheet" media="all" type="text/css" href="/css/location.css">
+  <!-- google maps api 참조. https://developers.google.com/maps/documentation/javascript/overview -->
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoXv_S_ciBM323Y3cOQlSJUkrOzt8WdXE&callback=initMap"></script>
   <script src="/js/location.js"></script>
 </head>
 <body>
@@ -15,182 +17,35 @@
 				<h1 class="blind">쿠폰 상세 정보</h1>
 				<div class="coupon_list">
           <!--  쿠폰 목록 출력 영역 -->
-
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_pre_hide">
-              <h1>물냉면</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498a8">
-                <img class="detail_img" src="image/coupon/coupon_01_detail.jpg" alt="물냉면 상세 이미지">
+          <% list.forEach(function(coupon, i){ %>
+            <article 
+              data-lat="<%=coupon.position.lat%>" 
+              data-lng="<%=coupon.position.lng%>" 
+              tabindex="0">
+              <h1><%=coupon.couponName%></h1>
+              <a href="/coupons/<%=coupon._id%>">
+                <img class="detail_img" 
+                  src="/image/coupon/<%=coupon.image.detail.file%>" 
+                  alt="<%=coupon.image.detail.desc%>">
               </a>
               <section class="content">
-                <p class="note">
-                  맛있는 물냉이 6000원. 반값에 제공합니다.
-                </p>
+                <p class="note"><%=coupon.desc%></p>
                 <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>8000원</del></li>
-                  <li class="discount">할인가격 : <em>6000원</em></li>
-                  <li class="expire">유효기간 : 
-                    <time datetime="2099-03-02">2099-03-02</time> ~ 
-                    <time datetime="2099-04-03">2099-04-03</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>10개</span></li>
+                  <li class="cost">정상가격 : <del><%=coupon.primeCost%>원</del></li>
+                  <li class="discount">할인가격 : <em><%=coupon.price%>원</em></li>
+                  <li class="remain">잔여수량<span><%=coupon.quantity-coupon.buyQuantity%>개</span></li>
                   <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
+                    <time datetime="<%=coupon.saleDate.start%>"><%=coupon.saleDate.start%></time> ~
+                    <time datetime="<%=coupon.saleDate.finish%>"><%=coupon.saleDate.finish%></time>
                   </li>
-                </ul>
-              </section>
-            </article>					
-                    
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_pre_02">
-              <h1>베스킨 라빈스</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498ae">
-                <img class="detail_img" src="image/coupon/coupon_07_detail.jpg" alt="베스킨 라빈스 싱글콘 상세 이미지">
-              </a>
-              <section class="content">
-                <p class="note">
-                  32가지 아이스크림 중에서 싱글콘 선택이 가능
-                </p>
-                <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>13500원</del></li>
-                  <li class="discount">할인가격 : <em>10000원</em></li>
                   <li class="expire">유효기간 : 
-                    <time datetime="2099-03-08">2099-03-08</time> ~ 
-                    <time datetime="2099-04-03">2099-04-03</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>17개</span></li>
-                  <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
-                  </li>
-                </ul>
-              </section>
-            </article>					
-                    
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_pre_01">
-              <h1>널부 쭈꾸미</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498b3">
-                <img class="detail_img" src="image/coupon/coupon_12_detail.jpg" alt="널부 쭈꾸미 상세 이미지">
-              </a>
-              <section class="content">
-                <p class="note">
-                  널부에서 매콤한 쭈꾸미 볶음을 저렴한 가격에 구입할 수 있는 절호의 찬스
-                </p>
-                <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>28000원</del></li>
-                  <li class="discount">할인가격 : <em>15000원</em></li>
-                  <li class="expire">유효기간 : 
-                    <time datetime="2099-03-09">2099-03-09</time> ~ 
-                    <time datetime="2099-03-19">2099-03-19</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>10개</span></li>
-                  <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
-                  </li>
-                </ul>
-              </section>
-            </article>					
-                    
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_act">
-              <h1>그라제 버거</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498ad">
-                <img class="detail_img" src="image/coupon/coupon_06_detail.jpg" alt="그라제 버거 상세 이미지">
-              </a>
-              <section class="content">
-                <p class="note">
-                  수제 햄거버의 명문!!! 그라제 버거. 반값 가격으로 만나보세요.
-                </p>
-                <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>8000원</del></li>
-                  <li class="discount">할인가격 : <em>6400원</em></li>
-                  <li class="expire">유효기간 : 
-                    <time datetime="2099-03-05">2099-03-05</time> ~ 
-                    <time datetime="2099-03-07">2099-03-07</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>297개</span></li>
-                  <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
-                  </li>
-                </ul>
-              </section>
-            </article>					
-                    
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_next_01">
-              <h1>허브 삼겹살</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498b2">
-                <img class="detail_img" src="image/coupon/coupon_11_detail.jpg" alt="허브 삼겹살 상세 이미지">
-              </a>
-              <section class="content">
-                <p class="note">
-                  홍대 직장인의 회식 장소. 허브 삼겹살 반값쿠폰.
-                </p>
-                <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>11000원</del></li>
-                  <li class="discount">할인가격 : <em>5500원</em></li>
-                  <li class="expire">유효기간 : 
-                    <time datetime="2099-03-11">2099-03-11</time> ~ 
-                    <time datetime="2099-03-14">2099-03-14</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>90개</span></li>
-                  <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
-                  </li>
-                </ul>
-              </section>
-            </article>					
-                    
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_next_02">
-              <h1>정로곱창</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498b6">
-                <img class="detail_img" src="image/coupon/coupon_15_detail.jpg" alt="정로곱창 상세이미지">
-              </a>
-              <section class="content">
-                <p class="note">
-                  쫄깃쫄깃 고소, 달콤, 매콤, 고소한 정로 곱창. 곱창의 품격을 느낄 수 있는 정로 곱창으로 오세요.
-                </p>
-                <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>38000원</del></li>
-                  <li class="discount">할인가격 : <em>20000원</em></li>
-                  <li class="expire">유효기간 : 
-                    <time datetime="2099-03-12">2099-03-12</time> ~ 
-                    <time datetime="2099-03-14">2099-03-14</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>14개</span></li>
-                  <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
-                  </li>
+                    <time datetime="<%=coupon.useDate.start%>"><%=coupon.useDate.start%></time> ~
+                    <time datetime="<%=coupon.useDate.finish%>"><%=coupon.useDate.finish%></time>
+                  </li>     
                 </ul>
               </section>
             </article>
-                    
-            <article data-lat="37.5252287" data-lng="126.9259026" tabindex="0" class="location_slide_next_hide">
-              <h1>돌판 오리고기</h1>
-              <a href="/coupons/5a9bb15b05c3dd3324c498b5">
-                <img class="detail_img" src="image/coupon/coupon_14_detail.jpg" alt="돌판 오리고기 상세이미지">
-              </a>
-              <section class="content">
-                <p class="note">
-                  오리고기의 명문. 회식의 필수코스. 돌판 오리고기. 돌판 오리고기에서는 국내산만을 취급합니다.
-                </p>
-                <ul class="coupon_info">
-                  <li class="cost">정상가격 : <del>55000원</del></li>
-                  <li class="discount">할인가격 : <em>30000원</em></li>
-                  <li class="expire">유효기간 : 
-                    <time datetime="2099-03-12">2099-03-12</time> ~ 
-                    <time datetime="2099-03-19">2099-03-19</time>
-                  </li>
-                  <li class="remain">잔여수량 : <span>60개</span></li>
-                  <li class="term">판매기간 : 
-                    <time datetime="2099-01-01">2099-01-01</time> ~
-                    <time datetime="2099-12-31">2099-12-31</time>
-                  </li>
-                </ul>
-              </section>
-            </article>
-
+          <% }); %>
         </div>
       </section>
       <div id="location_coupon_control">
