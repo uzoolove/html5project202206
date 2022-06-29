@@ -8,20 +8,29 @@ function testChart(){
   ];
 	
 	drawSaleGraph(data);	
-	// drawPointGraph(data);
-	// drawViewGraph(data);
-	// drawReplyGraph(data);
+	drawPointGraph(data);
+	drawViewGraph(data);
+	drawReplyGraph(data);
 }
 
 $(function(){
-	testChart();
+	// testChart();
+  $.getJSON('/topCoupon', {condition: 'buyQuantity'}, drawSaleGraph);
+  $.getJSON('/topCoupon', {condition: 'satisfactionAvg'}, drawPointGraph);
+  $.getJSON('/topCoupon', {condition: 'viewCount'}, drawViewGraph);
+  $.getJSON('/topCoupon', {condition: 'epilogueCount'}, drawReplyGraph);
 });
 
 // 판매순 그래프를 그린다.(Canvas)
 function drawSaleGraph(data){
 	var context = document.querySelector('#graph_by_sale').getContext('2d');
 	// TODO x, y 축 그리기
-
+  context.beginPath();
+  context.moveTo(70, 10);
+  context.lineTo(70, 231);
+  context.lineTo(470, 231);
+  context.lineWidth = 2;
+  context.stroke();
 
 	// 막대그래프 그리기
 	var r = 210 / data[0].value; // 높이 비율
@@ -36,7 +45,7 @@ function drawSaleGraph(data){
 		// 채우기 스타일 지정
 		context.fillStyle = 'rgba(186, 68, 10, 0.' + (7-i) + ')';
 		// TODO 막대 그래프 그리기
-		
+		context.fillRect(x, y, barW, barH);
 		
     // 텍스트 스타일 지정
     context.font = '12px "돋움, dotum, 굴림, gulim, sans-serif"';
@@ -44,7 +53,8 @@ function drawSaleGraph(data){
 		context.textAlign = 'center';
 		
 		// TODO 레이블 출력
-    
+    context.fillText(coupon.couponName, x+barW/2, 246);
+    context.fillText(coupon.value, x+barW/2, y);
   });
 }
 
@@ -54,7 +64,7 @@ function drawPointGraph(data){
   var points = [];
   data.forEach(function(coupon){
     labels.push(coupon.couponName);
-		points.push(coupon.value);
+		points.push(coupon.value * 20);
   });
   var hbar = new RGraph.HBar('graph_by_point', points);
   hbar.Set('chart.labels', labels);

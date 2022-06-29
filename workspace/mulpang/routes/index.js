@@ -47,7 +47,8 @@ router.get('/best', function(req, res, next){
 });
 // top5 쿠폰 조회
 router.get('/topCoupon', async function(req, res, next){
-  res.json([]);
+  var list = await model.topCoupon(req.query.condition);
+  res.json(list);
 });
 // 모두 메뉴
 router.get('/all', async function(req, res, next){

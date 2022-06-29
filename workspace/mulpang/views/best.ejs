@@ -3,6 +3,18 @@
 <head>
   <%- include('layout/head', {title: '추천 쿠폰'}) %>
   <link rel="stylesheet" media="all" type="text/css" href="/css/best.css">
+
+  <!-- RGraph(http://www.rgraph.net) -->
+  <script src="/js/lib/rgraph/RGraph.common.core.js"></script>
+  <script src="/js/lib/rgraph/RGraph.common.dynamic.js"></script>
+  <script src="/js/lib/rgraph/RGraph.hbar.js"></script>
+  <!-- Chart.js(http://www.chartjs.org) -->
+  <script src="/js/lib/Chart.js"></script>
+  <!-- Flotr2(http://humblesoftware.com/flotr2) -->
+  <script src="/js/lib/flotr2.js"></script>
+  <!-- socket.io -->
+  <script src="/socket.io/socket.io.js"></script>
+
   <script src="/js/best.js"></script>
 </head>
 <body>
@@ -15,7 +27,8 @@
           <h1>mulpang Best!</h1>
           <div id="graph_by_sale_div">
             <h2>판매순 그래프</h2>
-            <img id="graph_by_sale" src="/image/graph_by_sale.png" width="472" height="250">
+            <!-- <img id="graph_by_sale" src="/image/graph_by_sale.png" width="472" height="250"> -->
+            <canvas id="graph_by_sale" width="472" height="250"></canvas>
           </div>
           <div id="graph_by_point_div">
             <h2>평가순 그래프</h2>
