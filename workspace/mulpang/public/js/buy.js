@@ -28,5 +28,8 @@ function setBuyEvent(){
 
 // 구매수량 수정시 결제가격 계산
 function setPriceEvent(){
-	
+	$('.detail form input[name=quantity]').on('input', function(){
+    var price = $(this).val() * $('form input[name=unitPrice]').val();
+    $('.detail form output[name=totalPrice]').text(price);
+  });
 }
