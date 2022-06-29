@@ -135,3 +135,6 @@
 .coupon_list article .content ul.coupon_info {/*쿠폰정보*/
 	display: none;
 }
+.coupon_list article{
+  display: none;
+}
