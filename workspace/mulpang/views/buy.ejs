@@ -23,7 +23,7 @@
             <!-- 구매하기 -->
             <section class="form_section">
               <h1>구매하기</h1>
-              <form novalidate>
+              <form>
                 <input type="hidden" name="couponId" value="<%=coupon._id%>">
                 <input type="hidden" name="unitPrice" value="<%=coupon.price%>">
                 <img src="/css/svg/cart_form.svg">
@@ -32,12 +32,13 @@
                     <tr>
                       <th><label for="buyQuantity">구매수량</label></th>
                       <td class="number_td">
-                        <input type="text" name="quantity">
+                        <input type="number" name="quantity"
+                          min="1" max="<%=coupon.quantity-coupon.buyQuantity%>" required value="1">
                       </td>
                     </tr>
                     <tr>
                       <th>결제가격</th>
-                      <td class="number_td">12000 원</td>
+                      <td class="number_td"><output name="totalPrice"><%=coupon.price%></output> 원</td>
                     </tr>
                     <tr>
                       <th><label for="cardtype">카드종류</label></th>
@@ -54,21 +55,25 @@
                     <tr>
                       <th><label for="cardNumber">카드번호</label></th>
                       <td>
-                        <input type="text" name="cardNumber">
+                        <input type="text" name="cardNumber" 
+                          pattern="^\d{16}$" maxlength="16" required value="1234567890123456">
                       </td>
                     </tr>
                     <tr>
                       <th><label>카드 유효 기간</label></th>
                       <td>
-                        <input type="text" name="cardExpireMonth" title="유효기간 월"> 
+                        <input type="number" name="cardExpireMonth" title="유효기간 월"
+                          min="1" max="12" value="6" required placeholder="MM"> 
                         /
-                        <input type="text" name="cardExpireYear" title="유효기간 년">
+                        <input type="number" name="cardExpireYear" title="유효기간 년"
+                          min="2022" max="2032" value="2023" required placeholder="YYYY">
                       </td>
                     </tr>
                     <tr>
                       <th><label for="csv">CSV코드</label></th>
                       <td>
-                        <input type="text" name="csv">
+                        <input type="text" name="csv" 
+                          placeholder="카드 뒷면 숫자 3자리" maxlength="3" pattern="^\d{3}$" required value="123">
                       </td>
                     </tr>
                   </tbody>
