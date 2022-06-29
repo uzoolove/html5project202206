@@ -88,3 +88,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+// socket.io 서버 구동
+var socketio = require('socket.io')(server);
+app.set('io', socketio);

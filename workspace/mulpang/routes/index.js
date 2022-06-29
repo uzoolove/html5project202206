@@ -16,7 +16,8 @@ router.get('/today', async function(req, res, next) {
 
 // 쿠폰 상세조회
 router.get('/coupons/:_id', async function(req, res, next) {
-  const coupon = await model.couponDetail(req.params._id);
+  var io = req.app.get('io');
+  const coupon = await model.couponDetail(req.params._id, io);
   res.render('detail', {coupon: coupon, toStar: MyUtil.toStar});
 });
 

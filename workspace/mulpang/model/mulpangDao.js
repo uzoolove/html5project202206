@@ -63,7 +63,7 @@ module.exports.couponList = async function(){
 };
 
 // 쿠폰 상세 조회
-module.exports.couponDetail = async function(_id){
+module.exports.couponDetail = async function(_id, io){
 	// coupon, shop, epilogue 조인
 	var coupon = await db.coupon.aggregate([{
     $match: {
@@ -90,13 +90,12 @@ module.exports.couponDetail = async function(_id){
     }
   }]).next();
   // console.log(coupon);
-  return coupon;
 
 	// 뷰 카운트를 하나 증가시킨다.
-	
+	await db.coupon.updateOne({_id: coupon._id}, {$inc: {viewCount: 1}});
 	// 웹소켓으로 수정된 조회수 top5를 전송한다.
-	
-
+	io.emit('top5', await topCoupon('viewCount'));
+  return coupon;
 };
 
 // 구매 화면에 보여줄 쿠폰 정보 조회
