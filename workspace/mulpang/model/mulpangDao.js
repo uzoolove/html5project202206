@@ -27,19 +27,44 @@ main()
   .catch(console.error);
 
 // 쿠폰 목록조회
-module.exports.couponList = async function(){
+module.exports.couponList = async function(qs){
+  qs = qs || {};
 	// 검색 조건
 	var query = {};
 	// 1. 판매 시작일이 지난 쿠폰, 구매 가능 쿠폰(기본 검색조건)	
+  var now = moment().format('YYYY-MM-DD');
+  query['saleDate.start'] = {$lte: now};
+  query['saleDate.finish'] = {$gte: now};
 	// 2. 전체/구매가능/지난쿠폰
-	// 3. 지역명	
+  switch(qs.date){
+    case 'all':
+      delete query['saleDate.finish'];
+      break;
+    case 'past':
+      query['saleDate.finish'] = {$lt: now};
+      break;
+  }
+	// 3. 지역명
+  if(qs.location){
+    query['region'] = qs.location;
+  }
 	// 4. 검색어	
-
+  var keyword = qs.keyword;
+  if(keyword && keyword.trim() != ''){
+    var regExp = new RegExp(keyword, 'i');  // 정규표현식
+    query['$or'] = [{couponName: regExp}, {desc: regExp}];
+  }
 	// 정렬 옵션
 	var orderBy = {};
 	// 1. 사용자 지정 정렬 옵션	
+  var orderCondition = qs.order;
+  if(orderCondition){
+    orderBy[orderCondition] = -1; // 내림차순
+  }
 	// 2. 판매 시작일 내림차순(최근 쿠폰)	
+  orderBy['saleDate.start'] = -1;
 	// 3. 판매 종료일 오름차순(종료 임박 쿠폰)
+  orderBy['saleDate.finish'] = 1;
 
 	// 출력할 속성 목록
 	var fields = {
@@ -57,7 +82,7 @@ module.exports.couponList = async function(){
 	
 	// TODO 쿠폰 목록을 조회한다.
 	const count = 0;
-  const result = await db.coupon.find(query).project(fields).limit(count).toArray();
+  const result = await db.coupon.find(query).project(fields).sort(orderBy).limit(count).toArray();
   console.log(result.length + '건 조회됨.');
   return result;
 };
@@ -144,6 +169,11 @@ module.exports.buyCoupon = async function(params){
 var topCoupon = module.exports.topCoupon = async function(condition){
 	var order = {};
   var query = {}; // 검색 조건
+  // 1. 판매 시작일이 지난 쿠폰, 구매 가능 쿠폰(기본 검색조건)	
+  var now = moment().format('YYYY-MM-DD');
+  query['saleDate.start'] = {$lte: now};
+  query['saleDate.finish'] = {$gte: now};
+
   order[condition] = -1;
   var list = await db.coupon.aggregate([
     { $match: query }, 
