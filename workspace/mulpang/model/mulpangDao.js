@@ -215,12 +215,33 @@ function saveImage(tmpFileName, profileImage){
   var org = path.join(tmpDir, tmpFileName);
   var dest = path.join(profileDir, profileImage);
 	// TODO 임시 이미지를 member 폴더로 이동시킨다.
-	
+	fs.rename(org, dest, function(err){
+    if(err) console.error(err);
+  });
 }
 
 // 회원 가입
 module.exports.registMember = async function(params){
-	
+	var member = {
+    _id: params._id,
+    password: params.password,
+    profileImage: params._id,
+    regDate: moment().format('YYYY-MM-DD hh:mm:ss')
+  };
+
+  try{
+    var result = await db.member.insertOne(member);
+    saveImage(params.tmpFileName, member.profileImage);
+    return result.insertedId;
+  }catch(err){
+    console.error(err);
+    if(err.code == 11000){
+      throw new Error('이미 등록된 이메일입니다.');
+    }else{
+      throw new Error('작업 처리에 실패했습니다. 잠시후 다시 시도해 주시기 바랍니다.');
+    }
+  }
+  
 };
 
 // 로그인 처리
