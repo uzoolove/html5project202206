@@ -10,9 +10,15 @@ $(function(){
 
 // 관심쿠폰을 보여준다.
 common.cart.showCart = function(){
-  // var cartElement = '<li data-couponid="' + couponId + '"><a href="/coupons/' + couponId + '"><img src="' + coupon.img + '" alt="' + coupon.name + '"></a><button class="cart_close">관심쿠폰 삭제</button></li>';
-  
-
+  var cartList = $('#cart ul').empty();
+  var cart = JSON.parse(localStorage.getItem('cart') || '{}');
+  for(var couponId in cart){
+    var coupon = cart[couponId];
+    var cartElement = '<li data-couponid="' + couponId + '"><a href="/coupons/' + couponId + '"><img src="' + coupon.img + '" alt="' + coupon.name + '"></a><button class="cart_close">관심쿠폰 삭제</button></li>';
+    cartList.append(cartElement);
+  }
+  $('.interest_cnt').text(Object.keys(cart).length);
+  common.cart.setRemoveCartEvent();
   // TODO 알림메세지 승인시 관심쿠폰 수량 요청 시작
   
 };
