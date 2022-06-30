@@ -7,7 +7,6 @@ var MyUtil = require('../utils/myutil');
 // DB 접속
 var db;
 const { MongoClient, ObjectId } = require('mongodb');
-const { nextTick } = require('process');
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
 
@@ -247,7 +246,17 @@ module.exports.registMember = async function(params){
 // 로그인 처리
 module.exports.login = async function(params){
 	// TODO 지정한 아이디와 비밀번호로 회원 정보를 조회한다.
+  try{
+    var result = await db.member.findOne(params, {projection: {profileImage: 1}});
+  }catch(err){
+    console.error(err);
+    throw new Error('작업 처리에 실패했습니다. 잠시후 다시 시도하시기 바랍니다.');
+  }
 	
+  if(!result){
+    throw new Error('아이디와 비밀번호를 확인하세요.');
+  }
+  return result;
 };
 
 // 회원 정보 조회

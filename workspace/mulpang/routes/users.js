@@ -24,7 +24,12 @@ router.post('/new', async function(req, res, next) {
 });
 // 간편 로그인
 router.post('/simpleLogin', async function(req, res, next) {
-  res.json({_id: 'uzoolove@gmail.com', profileImage: 'uzoolove@gmail.com'});
+  try{
+    const user = await model.login(req.body);
+    res.json(user);
+  }catch(err){
+    res.json({errors: {message: err.message}});
+  }
 });
 // 로그아웃
 router.get('/logout', function(req, res, next) {
