@@ -199,7 +199,13 @@ var topCoupon = module.exports.topCoupon = async function(condition){
 
 // 지정한 쿠폰 아이디 목록을 받아서 남은 수량을 넘겨준다.
 module.exports.couponQuantity = async function(coupons){
-
+  // coupons = coupons.map(function(couponId){
+  //   return ObjectId(couponId);
+  // });
+  coupons = coupons.map(couponId => ObjectId(couponId));
+  var list = await db.coupon.find({_id: {$in: coupons}}
+                      , {projection: {couponName: 1, quantity: 1 , buyQuantity: 1}}).toArray();
+  return list;
 };
 
 // 임시로 저장한 프로필 이미지를 회원 이미지로 변경한다.

@@ -73,7 +73,11 @@ router.get('/all', async function(req, res, next){
 });
 // 쿠폰 남은 수량 조회
 router.get('/couponQuantity', async function(req, res, next){
-  res.end('success');
+  var list = await model.couponQuantity(req.query.couponIdList.split(','));
+  res.contentType('text/event-stream');  
+  res.write(`data: ${JSON.stringify(list)}\n`);
+  res.write(`retry: ${1000*10}\n`);
+  res.end('\n');
 });
 
 router.get('/:page.html', function(req, res, next) {
