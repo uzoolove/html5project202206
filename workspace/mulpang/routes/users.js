@@ -26,6 +26,7 @@ router.post('/new', async function(req, res, next) {
 router.post('/simpleLogin', async function(req, res, next) {
   try{
     const user = await model.login(req.body);
+    req.session.user = user;
     res.json(user);
   }catch(err){
     res.json({errors: {message: err.message}});

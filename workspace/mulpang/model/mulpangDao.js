@@ -247,15 +247,20 @@ module.exports.registMember = async function(params){
 module.exports.login = async function(params){
 	// TODO 지정한 아이디와 비밀번호로 회원 정보를 조회한다.
   try{
-    var result = await db.member.findOne(params, {projection: {profileImage: 1}});
+    var result = await db.member.findOne({_id: params._id}, {projection: {profileImage: 1, password: 1}});
   }catch(err){
     console.error(err);
     throw new Error('작업 처리에 실패했습니다. 잠시후 다시 시도하시기 바랍니다.');
   }
 	
   if(!result){
-    throw new Error('아이디와 비밀번호를 확인하세요.');
+    throw new Error('아이디가 존재하지 않습니다.');
+  }else{
+    if(params.password != result.password){
+      throw new Error('비밀번호를 확인하세요.');
+    }
   }
+  delete result.password;
   return result;
 };
 
