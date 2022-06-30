@@ -1,0 +1,10 @@
+<label for="search_date">기간</label>
+<select id="search_date" name="date">
+  <%- options([['구매가능', 'buyable'], ['전체', 'all'], ['지난쿠폰', 'past']], query.date) %>
+</select>
+<label for="search_location">지역</label>
+<select id="search_location" name="location">
+  <%- options([['전체', ''], '강남', '압구정', '논현', '홍대', '신촌', '기타'], query.location) %>
+</select>
+<label for="search_keyword">키워드</label>
+<input type="text" id="search_keyword" name="keyword" value="<%= query.keyword %>">

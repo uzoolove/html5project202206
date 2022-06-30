@@ -12,30 +12,10 @@
 			<section id="search">
 				<h1>쿠폰 검색</h1>
 				<form id="coupon_search" name="coupon_search" action="#" method="get">
-					<label for="search_date">기간</label>
-					<select id="search_date" name="date">
-            <option value="buyable">구매가능</option>
-            <option value="all">전체</option>						
-						<option value="past">지난쿠폰</option>
-					</select>
-					<label for="search_location">지역</label>
-					<select id="search_location" name="location">
-						<option value="">전체</option>
-						<option>강남</option>
-						<option>압구정</option>
-						<option>논현</option>
-						<option>홍대</option>
-						<option>신촌</option>
-						<option>기타</option>
-					</select>
-					<label for="search_keyword">키워드</label>
-          <input type="text" id="search_keyword" name="keyword" value="">
-          
+          <%- include('layout/search') %>
           <label for="list_order">정렬</label>
 					<select id="list_order" name="order">
-						<option value="saleDate.start">최근순</option>
-						<option value="satisfactionAvg">평가순</option>
-						<option value="buyQuantity">판매순</option>
+            <%- options([['최근순', 'saleDate.start'], ['평가순', 'satisfactionAvg'], ['판매순', 'buyQuantity']], query.order) %>
           </select>
           
 					<input type="submit" value="검색">
