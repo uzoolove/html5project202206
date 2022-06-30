@@ -81,8 +81,16 @@ module.exports.couponList = async function(qs){
 	};
 	
 	// TODO 쿠폰 목록을 조회한다.
-	const count = 0;
-  const result = await db.coupon.find(query).project(fields).sort(orderBy).limit(count).toArray();
+	var count = 0;
+  var offset = 0;
+  if(qs.page){
+    count = 5;
+    offset = (qs.page - 1) * count;
+  }
+  
+  const result = await db.coupon.find(query).project(fields).sort(orderBy).skip(offset).limit(count).toArray();
+  const totalCount = await db.coupon.countDocuments(query);
+  result.totalPage = Math.floor((totalCount+count-1)/count);
   console.log(result.length + '건 조회됨.');
   return result;
 };

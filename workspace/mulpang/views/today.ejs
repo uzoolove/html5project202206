@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <%- include('layout/head', {title: ''}) %>
+  <%- include('layout/head', {title: '오늘의 쿠폰'}) %>
   <link rel="stylesheet" media="all" type="text/css" href="/css/today.css">
 </head>
 <body>
@@ -44,10 +44,18 @@
           <% } %>
 				</div>
 			</section>
-			<div id="coupon_control">
-        <button type="button" class="btn_pre">이전</button>
-				<a href="/today2.html"><button type="button" class="btn_next">다음</button></a>		
-			</div>
+      <div id="coupon_control">
+        <% if(list.page.pre){ %>
+          <a href="<%= list.page.pre %>"><button type="button" class="btn_pre">이전</button></a>
+        <% }else{ %>
+          <button type="button" class="btn_pre">이전</button>
+        <% } %>
+        <% if(list.page.next){ %>
+          <a href="<%= list.page.next %>"><button type="button" class="btn_next">다음</button></a>    
+        <% }else{ %>
+          <button type="button" class="btn_next">다음</button>
+        <% } %> 
+      </div>
 		</div>
     <%- include('layout/footer') %>    
 	</div>

@@ -10,8 +10,23 @@ router.get('/', function(req, res, next) {
 
 // 오늘 메뉴
 router.get('/today', async function(req, res, next) {
-  const list = await model.couponList(req.query);
-  res.render('today', {list: list, query: req.query, options: MyUtil.generateOptions});
+  if(req.query.page){
+    req.query.page = parseInt(req.query.page);
+  }else{
+    req.query.page = 1;
+    if(req.query.date){ req.url += '&page=1'; } else { req.url += '?page=1';}
+  }
+  var list = await model.couponList(req.query);
+  list.page = {};
+  if(req.query.page > 1){
+    list.page.pre = req.url.replace('page=' + req.query.page
+                                    , 'page=' + (req.query.page-1));
+  }
+  if(req.query.page < list.totalPage){
+    list.page.next = req.url.replace('page=' + req.query.page
+                                    , 'page=' + (req.query.page+1));
+  }  
+  res.render('today', {list: list, query: req.query, options:MyUtil.generateOptions});
 });
 
 // 쿠폰 상세조회
