@@ -17,26 +17,26 @@
     </ul>
   </nav>
   <div id="member_info">        
-    <!-- 회원정보 출력 영역 -->
-    <!--
-    <h1 class="blind">회원정보</h1>
-    <img src="/image/member/uzoolove@gmail.com" class="user_profile" alt="uzoolove@gmail.com 회원 이미지">
-    <a href="/mypage.html" class="go_mypage">마이 페이지로</a>
-    <a href="/today.html" class="logout">로그아웃</a>
-    -->
-    
-    <!-- 로그인 화면 출력 영역 -->
-    <h1 class="blind">로그인</h1>
-    <form id="simple_login" name="simple_login_form" action="#" method="post">
-      <label for="login_username">아이디</label>
-      <input type="email" id="login_username" name="_id" required placeholder="등록된 e-mail 입력">
-      <label for="login_password">비밀번호</label>
-      <input type="password" id="login_password" name="password" required placeholder="비밀번호 입력">
-      <input type="submit" value="로그인">
-    </form>
-    <a href="/users/new" class="member_join">회원가입</a>
 
-    
+    <% if(typeof user == 'undefined'){ %>
+      <!-- 로그인 화면 출력 영역 -->
+      <h1 class="blind">로그인</h1>
+      <form id="simple_login" name="simple_login_form" action="#" method="post">
+        <label for="login_username">아이디</label>
+        <input type="email" id="login_username" name="_id" required placeholder="등록된 e-mail 입력">
+        <label for="login_password">비밀번호</label>
+        <input type="password" id="login_password" name="password" required placeholder="비밀번호 입력">
+        <input type="submit" value="로그인">
+      </form>
+      <a href="/users/new" class="member_join">회원가입</a>
+    <% }else{ %>
+      <!-- 회원정보 출력 영역 -->
+      <h1 class="blind">회원정보</h1>
+      <img src="/image/member/<%= user.profileImage %>" class="user_profile" 
+        alt="<%= user._id %> 회원 이미지">
+      <a href="/users" class="go_mypage">마이 페이지로</a>
+      <a href="/users/logout" class="logout">로그아웃</a>
+    <% } %>    
   </div>
   <div id="cart" class="carton">
     <h2 class="interest">관심쿠폰</h2>

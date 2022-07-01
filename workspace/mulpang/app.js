@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var nocache = require('nocache');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -32,6 +33,7 @@ app.use(/^((?!\/couponQuantity).)*$/, session({
   next();
 });
 
+app.use(nocache());
 app.use(logger('dev'));
 
 app.use('/', indexRouter);
