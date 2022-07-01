@@ -301,10 +301,54 @@ module.exports.getMember = async function(userid){
 
 // 회원 정보 수정
 module.exports.updateMember = async function(userid, params){
-	
+  try{
+    // 이전 비밀번호로 회원 정보를 조회한다.
+    var member = await db.member.findOne({_id: userid, password: params.oldPassword});
+  }catch(err){
+    console.error(err);
+    throw new Error('작업 처리에 실패했습니다. 잠시 후 다시 시도하시기 바랍니다.');
+  }
+  if(member){
+    if(params.tmpFileName){ // 프로필 이미지를 수정할 경우
+      saveImage(params.tmpFileName, member.profileImage);
+    }
+    if(params.password.trim() != ''){ // 비밀번호를 수정할 경우
+      await db.member.updateOne({_id: userid}, {$set: {password: params.password}});
+    }
+  }else{
+    throw new Error('이전 비밀번호가 맞지 않습니다.');
+  }
+  return member;
 };
 
 // 쿠폰 후기 등록
 module.exports.insertEpilogue = async function(userid, params){
-	
+  var purchaseId = ObjectId(params.purchaseId);
+	var epilogue = {
+    _id: ObjectId(),
+    couponId: ObjectId(params.couponId),
+    writer: userid,
+    satisfaction: parseInt(params.satisfaction),
+    content: params.content,
+    regDate: moment().format('YYYY-MM-DD hh:mm:ss')
+  };
+
+  try{
+    // 후기를 등록한다.
+    var epilogueResult = await db.epilogue.insertOne(epilogue);
+    // 구매 컬렉션에 후기 id 등록
+    await db.purchase.updateOne({_id: purchaseId}, {$set: {epilogueId: epilogue._id}});
+    // 쿠폰 컬렉션에 후기수와 만족도 평균 업데이트
+    var coupon = await db.coupon.findOne({_id: epilogue.couponId});
+    var update = {
+      $inc: {epilogueCount: 1},
+      $set: {satisfactionAvg: (coupon.satisfactionAvg * coupon.epilogueCount 
+                              + parseFloat(epilogue.satisfaction)) / (coupon.epilogueCount + 1)}
+    };
+    await db.coupon.updateOne({_id: epilogue.couponId}, update);
+    return epilogueResult.insertedId;
+  }catch(err){
+    console.error(err);
+    throw new Error('작업 처리에 실패했습니다. 잠시 후 다시 시도하시기 바랍니다.');
+  }
 };

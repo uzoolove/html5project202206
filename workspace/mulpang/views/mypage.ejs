@@ -62,14 +62,14 @@
               <p><%=toStar(item.epilogue.stisfaction)%></p>
             <% }else{ %>
               <form>
-                <input type="hidden" name="couponId" value="5a9c726c77ed1952b4e9d1e4">
-                <input type="hidden" name="purchaseId" value="5a9c726c77ed1952b4e9d1ff">
+                <input type="hidden" name="couponId" value="<%=item.couponId%>">
+                <input type="hidden" name="purchaseId" value="<%=item._id%>">
                 평가: <input name="satisfaction" type="range" min="1" max="5" value="5" step="0.5" oninput="output.value=this.value"><output name="output">5</output>
                 <textarea name="content" rows="4" cols="25" required placeholder="후기를 입력하세요."></textarea><br>
                 <input type="submit" value="작성">
               </form>
             <% } %>
-            
+
           </article>
         <% }); %>
 			</section>
