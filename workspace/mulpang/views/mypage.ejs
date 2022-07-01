@@ -14,11 +14,12 @@
         <h1>회원 수정</h1>
         <form>
           <input type="hidden" name="tmpFileName">
-          <img src="/image/member/uzoolove@gmail.com" alt="uzoolove@gmail.com 회원 프로필 이미지">
+          <img src="/image/member/<%=user.profileImage%>" 
+            alt="<%=user._id%> 회원 프로필 이미지">
           <table>
             <tr>
               <th>이메일</th>
-              <td>uzoolove@gmail.com</td>
+              <td><%=user._id%></td>
             </tr>
             <tr>
               <th><label for="profile">프로필 이미지</label></th>
@@ -46,42 +47,31 @@
       <section id="my_coupon_section">
 				<h1>내가 구매한 쿠폰 리스트</h1>    
 				<!-- 구매한 쿠폰 목록 출력 영역 -->
-				
+        <% purchases.forEach(function(item, i){ %>
           <article class="coupon_preview">
-            <h1>물냉면</h1>
-            <a href="/detail2.html">
-              <img class="coupon_list_image" src="/image/coupon/coupon_01.jpg" alt="물냉면 메인 이미지">
+            <h1><%=item.coupon.couponName%></h1>
+            <a href="/coupons/<%=item.couponId%>">
+              <img class="coupon_list_image" 
+                src="/image/coupon/<%=item.coupon.image.main.file%>" 
+                alt="<%=item.coupon.image.main.desc%>">
             </a>
-            <time datetime="2099-03-03 21:19:08">2099-03-03 21:19:08</time>
-            <p>치맥 괜찮아요. 하지만 물냉면은 비추...</p>
-            <p>★★★★</p>
+            <time datetime="<%=item.regDate%>"><%=item.regDate%></time>
+
+            <% if(item.epilogue){ %>
+              <p><%=item.epilogue.content%></p>
+              <p><%=toStar(item.epilogue.stisfaction)%></p>
+            <% }else{ %>
+              <form>
+                <input type="hidden" name="couponId" value="5a9c726c77ed1952b4e9d1e4">
+                <input type="hidden" name="purchaseId" value="5a9c726c77ed1952b4e9d1ff">
+                평가: <input name="satisfaction" type="range" min="1" max="5" value="5" step="0.5" oninput="output.value=this.value"><output name="output">5</output>
+                <textarea name="content" rows="4" cols="25" required placeholder="후기를 입력하세요."></textarea><br>
+                <input type="submit" value="작성">
+              </form>
+            <% } %>
+            
           </article>
-        
-          <article class="coupon_preview">
-            <h1>디저트 마카롱</h1>
-            <a href="/detail.html">
-              <img class="coupon_list_image" src="/image/coupon/coupon_16.jpg" alt="디저트 마카롱 메인 이미지">
-            </a>
-            <time datetime="2099-03-01 18:32:28">2099-03-01 18:32:28</time>
-            <p>최고입니다.</p>
-            <p>★★★★</p>
-          </article>		
-              
-          <article class="coupon_preview">
-            <h1>커피통 와플</h1>
-            <a href="/detail2.html">
-              <img class="coupon_list_image" src="/image/coupon/coupon_02.jpg" alt="와플 메인 이미지">
-            </a>
-            <time datetime="2099-02-27 02:52:28">2099-02-27 02:52:28</time>	
-            <form>
-              <input type="hidden" name="couponId" value="5a9c726c77ed1952b4e9d1e4">
-              <input type="hidden" name="purchaseId" value="5a9c726c77ed1952b4e9d1ff">
-              평가: <input name="satisfaction" type="range" min="1" max="5" value="5" step="0.5" oninput="output.value=this.value"><output name="output">5</output>
-              <textarea name="content" rows="4" cols="25" required placeholder="후기를 입력하세요."></textarea><br>
-              <input type="submit" value="작성">
-            </form>					
-          </article>
-          
+        <% }); %>
 			</section>
 		</div>
     <%- include('layout/footer') %>    

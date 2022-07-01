@@ -54,7 +54,7 @@ router.post('/purchase', checklogin, async function(req, res, next) {
   try{
     // var user = req.session.user;
     // if(user){
-      req.body.email = user._id;
+      req.body.email = req.session.user._id;
       const purchaseId = await model.buyCoupon(req.body);
       res.end(String(purchaseId));
     // }else{

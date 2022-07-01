@@ -267,7 +267,36 @@ module.exports.login = async function(params){
 
 // 회원 정보 조회
 module.exports.getMember = async function(userid){
-	
+	var result = await db.purchase.aggregate([
+    {$match: {email: userid}},
+    {$lookup: {
+        from: 'coupon',
+        localField: 'couponId',
+        foreignField: '_id',
+        as: 'coupon'
+    }},
+    {$unwind: '$coupon'},
+    {$lookup: {
+        from: 'epilogue',
+        localField: 'epilogueId',
+        foreignField: '_id',
+        as: 'epilogue'
+    }},
+    {$unwind: {
+        path: '$epilogue',
+        preserveNullAndEmptyArrays: true
+    }},
+    {$project: {
+        _id: 1,
+        couponId: 1, 
+        regDate: 1,
+        'coupon.couponName': 1,
+        'coupon.image.main': 1,
+        epilogue: 1
+    }},
+    {$sort: {regDate: -1}}
+  ]).toArray();
+  return result;
 };
 
 // 회원 정보 수정
