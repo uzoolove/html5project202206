@@ -10,9 +10,12 @@
     <div id="main">
 			<section class="form_section">
 				<h1>로그인</h1>
-        <form method="post" action="/users/login">
-          
+        <form method="post" action="/users/login">          
           <h2>로그인이 필요합니다.</h2>
+
+          <% if(typeof errors == 'object'){ %>
+            <h3><%= errors.message %></h3>
+          <% } %>          
           
           <br>
 					<img src="/image/svg/login.svg">

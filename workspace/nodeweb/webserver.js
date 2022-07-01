@@ -8,7 +8,13 @@ const home = path.join(__dirname, 'design');
 
 var server = http.createServer(function(req, res){
   console.log(req.method, req.url, req.httpVersion);
-  // console.log(req.headers);
+  console.log(req.headers);
+
+  console.log('2 req.query', req.query);
+  console.log('2 req.body', req.body);
+  console.log('2 req.cookies', req.cookies);
+  console.log('2 req.session', req.session);
+  
   var filename = req.url;
   // var mimeType = myMime.getMime(filename);
   var mimeType = mime.getType(filename);

@@ -15,10 +15,27 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+
+app.use('/today', function(req, res, next){
+  // 미들웨어 만드는 방법
+  // 1. req, res, next를 매개변수로 정의
+  // 2. 기능 구현
+  // 3-1. 클라이언트에 응답(res.json(), res.end(), res.render(), res.redirect()...)
+  // 3-2. 다음 미들웨어를 호출(next())
+  console.log('1 req.query', req.query);
+  console.log('1 req.body', req.body);
+  console.log('1 req.cookies', req.cookies);
+  console.log('1 req.session', req.session);
+  console.log(req.headers);
+  next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // "/couponQuantity"로 시작하지 않는 url에 세션 사용
 app.use(/^((?!\/couponQuantity).)*$/, session({
@@ -33,11 +50,27 @@ app.use(/^((?!\/couponQuantity).)*$/, session({
   next();
 });
 
+
+
+app.use('/today', function(req, res, next){
+  // 미들웨어 만드는 방법
+  // 1. req, res, next를 매개변수로 정의
+  // 2. 기능 구현
+  // 3-1. 클라이언트에 응답(res.json(), res.end(), res.render(), res.redirect()...)
+  // 3-2. 다음 미들웨어를 호출(next())
+  console.log('2 req.query', req.query);
+  console.log('2 req.body', req.body);
+  console.log('2 req.cookies', req.cookies);
+  console.log('2 req.session', req.session);
+  next();
+});
+
 app.use(nocache());
 app.use(logger('dev'));
 
-app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', indexRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const model = require('../model/mulpangDao');
 const MyUtil = require('../utils/myutil');
+const checklogin = require('../middleware/checklogin');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,16 +38,28 @@ router.get('/coupons/:_id', async function(req, res, next) {
 });
 
 // 구매 화면
-router.get('/purchases/:_id', async function(req, res, next) {
-  const coupon = await model.buyCouponForm(req.params._id);
-  res.render('buy', {coupon});
+router.get('/purchases/:_id', checklogin, async function(req, res, next) {
+  // var user = req.session.user;
+  // if(user){
+    const coupon = await model.buyCouponForm(req.params._id);
+    res.render('buy', {coupon});
+  // }else{
+  //   req.session.backurl = req.originalUrl;
+  //   res.redirect('/users/login');
+  // }
 });
 
 // 구매 하기
-router.post('/purchase', async function(req, res, next) {
+router.post('/purchase', checklogin, async function(req, res, next) {
   try{
-    const purchaseId = await model.buyCoupon(req.body);
-    res.end(String(purchaseId));
+    // var user = req.session.user;
+    // if(user){
+      req.body.email = user._id;
+      const purchaseId = await model.buyCoupon(req.body);
+      res.end(String(purchaseId));
+    // }else{
+    //   res.json({errors: {message: '로그인 후 이용하세요.'}});
+    // }    
   }catch(err){
     res.json({errors: {message: err.message}});
   }  
